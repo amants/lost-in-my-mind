@@ -15,9 +15,10 @@ const Ambassadors = () => {
       </Heading>
       <AmbassadorSwiper />
       <ButtonContainer>
-        <Button>Zoek interactieve affiches</Button>
-        <Button href="/ambassadors" secondary>
-          Onze ambassadeurs
+        <Button href="/map">Zoek interactieve affiches</Button>
+        <Button href="/" secondary>
+          Open AR-Lens
+          <ButtonIcon src="./assets/images/camera-icon.svg" />
         </Button>
       </ButtonContainer>
     </Layout>
@@ -26,6 +27,10 @@ const Ambassadors = () => {
 
 const ButtonContainer = styled.div`
   margin-top: 2rem;
+`;
+
+const ButtonIcon = styled.img`
+  margin-left: 1rem;
 `;
 
 const Button = styled.a`
