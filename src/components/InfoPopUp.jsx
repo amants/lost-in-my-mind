@@ -1,18 +1,25 @@
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const PopUpComponent = ({ dispatch }) => {
+  const popUpRef = useRef();
   const closePopUp = (e) => {
     if (e) e.preventDefault();
 
+    popUpRef.current.style.opacity = 0;
     setTimeout(() => {
       dispatch();
     }, 200);
   };
 
+  useEffect(() => {
+    popUpRef.current.style.opacity = 1;
+  });
+
   return (
-    <Background onClick={closePopUp}>
+    <Background ref={popUpRef} onClick={closePopUp}>
       <Container onClick={(e) => e.stopPropagation()}>
         <Title>Verdwaal in mijn gedachten</Title>
         <Alinea>
@@ -26,7 +33,9 @@ const PopUpComponent = ({ dispatch }) => {
         </Alinea>
         <ButtonContainer>
           <Button onClick={closePopUp}>Sluiten</Button>
-          <Button secondary>Onze ambassadeurs</Button>
+          <Button to="/ambassadors" secondary>
+            Onze ambassadeurs
+          </Button>
         </ButtonContainer>
       </Container>
     </Background>
@@ -45,9 +54,11 @@ const Background = styled.div`
   right: 0;
   bottom: 0;
   z-index: 2;
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s ease;
 `;
 
 const Container = styled.div`

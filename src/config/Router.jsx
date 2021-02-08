@@ -7,7 +7,7 @@ import Ambassadors from "../pages/Ambassadors";
 const GlobalRouter = () => (
   <Router>
     <Switch>
-      <Route path="/" component={ARCamera} />
+      <Route path="/" exact component={ARCamera} />
       <Route path="/ambassadors" component={Ambassadors} />
     </Switch>
   </Router>
