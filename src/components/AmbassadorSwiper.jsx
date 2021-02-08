@@ -27,16 +27,19 @@ const AmbassadorSwiper = () => {
         nextEl: ".next_slider",
         prevEl: ".prev_slider",
       }}
-      initialSlide={2}
+      initialSlide={0}
       centeredSlides
       breakpoints={{
         600: {
+          initialSlide: 1,
           slidesPerView: 2,
         },
         1100: {
+          initialSlide: 2,
           slidesPerView: 3,
         },
         1400: {
+          initialSlide: 2,
           slidesPerView: 4,
         },
       }}
@@ -111,6 +114,7 @@ const AmbassadorImage = styled.img`
   max-height: 250px;
   object-fit: contain;
   position: relative;
+  margin: auto;
   z-index: 1;
 `;
 const AmbassadorNameImage = styled.img`
@@ -124,7 +128,7 @@ const AmbassadorNameImage = styled.img`
 const Slide = styled.div`
   text-align: center;
   position: relative;
-  padding: 3rem;
+  padding: 3rem 0;
   max-width: 800px;
   opacity: ${({ opacity }) => `${opacity}%`};
   transition: all 0.2s ease;

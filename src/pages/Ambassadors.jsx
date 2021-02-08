@@ -61,6 +61,7 @@ const Heading = styled.div`
   display: flex;
   align_items: center;
   justify-content: space-between;
+  margin: 0 2rem;
 `;
 
 const Title = styled.h2`

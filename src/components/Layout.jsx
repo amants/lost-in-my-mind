@@ -16,7 +16,6 @@ const Layout = ({ children }) => {
 };
 
 const Container = styled.div`
-  padding: 2rem;
   padding-top: 10rem;
 `;
 
