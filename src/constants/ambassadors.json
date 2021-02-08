@@ -19,5 +19,12 @@
     "name": "Joost",
     "position": "0 -3 2",
     "marker": "6"
+  },
+  {
+    "dataId": "markerAnneleen",
+    "model": "./models/anneleen_world_aanpassing.gltf",
+    "name": "Anneleen",
+    "position": "0 -3 2",
+    "marker": "10"
   }
 ]
