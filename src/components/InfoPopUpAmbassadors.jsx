@@ -30,8 +30,8 @@ const PopUpComponent = ({ dispatch }) => {
           interactieve AR-wereld.
         </Alinea>
         <ButtonContainer>
-          <Button onClick={closePopUp}>Sluiten</Button>
-          <Button href="/ambassadors" secondary>
+          <Button href="/">Zoek interactieve affiches</Button>
+          <Button onClick={closePopUp} secondary>
             Onze ambassadeurs
           </Button>
         </ButtonContainer>

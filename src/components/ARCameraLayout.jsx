@@ -7,7 +7,9 @@ import AmbassadorPopUp from "../components/AmbassadorPopUp";
 
 import ambassadorData from "../constants/ambassadorData.json";
 const ARCameraLayout = ({ children }) => {
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(
+    !sessionStorage.getItem("info-seen")
+  );
   const [showMenu, setShowMenu] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
 
