@@ -66,7 +66,7 @@ const ARCameraLayout = ({ children }) => {
           dispatch={() => setAmbassadorPopup()}
         />
       )}
-      <Logo src="./assets/images/logo.png"></Logo>
+      <Logo src="./assets/images/logo.svg"></Logo>
       <Menu onClick={() => setShowMenu(true)}>Menu</Menu>
       <Info onClick={() => setShowInfo(true)}>Info</Info>
       <AframeContainer>{children}</AframeContainer>
@@ -105,6 +105,7 @@ const Logo = styled.img`
   left: 1.5rem;
   z-index: 7;
   top: 1rem;
+  width: 6rem;
 `;
 
 const Info = styled.a`

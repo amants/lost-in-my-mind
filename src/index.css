@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "gt-pressura";
+  src: url("./assets/fonts/gt-pressura-bold-web.woff") format("woff");
+}
+
 html {
   font-size: 62.5%;
 }

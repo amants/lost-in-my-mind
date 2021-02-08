@@ -44,8 +44,8 @@ const AmbassadorSwiper = () => {
         },
       }}
       coverflowEffect={{
-        depth: 150,
-        modifier: 1,
+        depth: 200,
+        modifier: 2,
         rotate: 0,
         slideShadows: false,
       }}

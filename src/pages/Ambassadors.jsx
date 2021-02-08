@@ -3,15 +3,33 @@ import styled from "styled-components";
 import AmbassadorSwiper from "../components/AmbassadorSwiper";
 import Layout from "../components/Layout";
 import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
-
+import headerAmbassadorsImage from "../assets/images/header_ambassadors.png";
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
   return (
     <Layout>
       {showInfo && <InfoPopUpAmbassadors dispatch={() => setShowInfo(false)} />}
       <Heading>
-        <Title>De 5 ambassadeurs</Title>
-        <Information onClick={() => setShowInfo(true)}>i</Information>
+        <DesktopHeading>
+          <LeftSide />
+          <RightSide>
+            <h2>Verdwaal in mijn Gedachten</h2>
+            <p>
+              Leer <span>onze 5 ambassadeurs</span> op een unieke manier kennen.
+              Neem een kijkje in hun gedachten en ga op zoek naar wie de auteur
+              is en hoe hij of zij denkt.
+            </p>
+            <p>
+              In Kortrijk zijn 5 interactieve affiches te vinden gekoppeld aan
+              een ambassadeur. Door de QR-code te scannen krijg je toegang tot
+              hun interactieve AR-wereld.
+            </p>
+          </RightSide>
+        </DesktopHeading>
+        <MobileHeading>
+          <Title>De 5 ambassadeurs</Title>
+          <Information onClick={() => setShowInfo(true)}>i</Information>
+        </MobileHeading>
       </Heading>
       <AmbassadorSwiper />
       <ButtonContainer>
@@ -24,6 +42,47 @@ const Ambassadors = () => {
     </Layout>
   );
 };
+
+const MobileHeading = styled.header`
+  display: block;
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+`;
+
+const DesktopHeading = styled.header`
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  overflow: hidden;
+
+  @media screen and (min-width: 900px) {
+    display: grid;
+  }
+`;
+const LeftSide = styled.div`
+  font-family: gt-pressura, sans-serif;
+  background-image: url(${headerAmbassadorsImage});
+  background-size: cover;
+`;
+const RightSide = styled.div`
+  padding: 5rem;
+  background-color: #2e2457;
+  & > h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 140%;
+    color: #f2a655;
+    margin: 0 0 2rem 0;
+  }
+
+  & > p {
+    font-weight: normal;
+  }
+`;
 
 const ButtonContainer = styled.div`
   margin-top: 2rem;
@@ -62,6 +121,10 @@ const Heading = styled.div`
   align_items: center;
   justify-content: space-between;
   margin: 0 2rem;
+
+  @media screen and (min-width: 900px) {
+    margin: 0;
+  }
 `;
 
 const Title = styled.h2`
