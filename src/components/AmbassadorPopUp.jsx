@@ -7,6 +7,7 @@ const PopUpComponent = ({ dispatch, ambassadorPopUp }) => {
 
   const closePopUp = (e) => {
     if (e) e.preventDefault();
+
     ambassadorPopUpRef.current.style.opacity = 0;
     containerRef.current.style.transform = "scale(0)";
     setTimeout(() => {
