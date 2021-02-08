@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 const Menu = styled.a`
-  position: fixed;
+  position: absolute;
   right: 1.5rem;
   top: 3rem;
   background-color: #2e2457;
@@ -37,7 +37,7 @@ const Menu = styled.a`
 `;
 
 const Logo = styled.img`
-  position: fixed;
+  position: absolute;
   left: 1.5rem;
   z-index: 7;
   top: 1rem;

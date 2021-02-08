@@ -27,6 +27,10 @@ const Ambassadors = () => {
 
 const ButtonContainer = styled.div`
   margin-top: 2rem;
+
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
 `;
 
 const ButtonIcon = styled.img`
