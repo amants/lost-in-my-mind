@@ -25,8 +25,218 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- A FRAME -->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script>
+      ARjs.Source.prototype.copyElementSizeTo = function (otherElement) {
+        if (window.innerWidth > window.innerHeight) {
+          //landscape
+          otherElement.style.width = this.domElement.style.width;
+          const height = (parseInt(otherElement.style.width) * 3) / 4;
+          otherElement.style.height = height + "px";
+          otherElement.style.marginLeft = 0;
+          otherElement.style.marginTop =
+            (window.innerHeight - height) / 2 + "px";
+        } else {
+          //portrait
+          otherElement.style.height = this.domElement.style.height;
+          const width = (parseInt(otherElement.style.height) * 4) / 3;
+          otherElement.style.width = width + "px";
+          otherElement.style.marginLeft =
+            (window.innerWidth - width) / 2 + "px";
+          otherElement.style.marginTop = 0;
+        }
+      };
+      window.addEventListener("orientationchange", () => {
+        console.log("test");
+        // On non-orientable device, isLandscape is set to true
+        const isLandscape =
+          window.orientation !== undefined
+            ? window.orientation === -90 || window.orientation === 90
+            : true;
+
+        // Store the current artoolkit projection matrix
+        let matrix = artoolkitContext.getProjectionMatrix();
+
+        // If the device is in landscape mode, we scale the matrix to invert the aspect ratio.
+        // I use 4 / 3 because my artoolkitSource is set to 640 x 480.
+        if (isLandscape) {
+          mat = mat.clone();
+          const ratio = 4 / 3;
+          matrix.elements[0] *= ratio;
+          matrix.elements[5] *= 1 / ratio;
+        }
+
+        // Update the projection matrix of the camera
+        camera.projectionMatrix.copy(matrix);
+      });
+    </script>
+    <!-- <script src="%PUBLIC_URL%/js/aframe-ar.js"></script> -->
+    <script src="https://raw.githack.com/matrix-org/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+      navigator.xr.requestDevice =
+        navigator.xr.requestDevice ||
+        function () {
+          return new Promise((resolve, reject) => {
+            resolve({
+              supportsSession: new Promise((resolve, reject) => {
+                resolve({
+                  immersive: true,
+                  exclusive: true,
+                });
+              }),
+            });
+          });
+        };
+    </script>
+    <script>
+      let mixers = [];
+      var clock = new THREE.Clock();
+      AFRAME.registerComponent("markercomp", {
+        init: function () {
+          console.log("marker initialized", this.el);
+          let el = this.el;
+          let self = this;
+          const model = document.querySelector(
+            `#${this.el.getAttribute("data-id")}`
+          );
+          el.addEventListener("markerFound", (e) => {
+            const modelItem = model.getObject3D("mesh");
+            const animation = modelItem.animations[0];
+            var mixer = new THREE.AnimationMixer(modelItem);
+            var action = mixer.clipAction(animation);
+            action.setLoop(THREE.LoopOnce);
+            action.clampWhenFinished = true;
+            action.play();
+            mixers.push(mixer);
+          });
+          el.addEventListener("markerLost", (e) => {
+            // your code here}
+            mixers.forEach((mixer, i) => {
+              delete mixers[i];
+            });
+          });
+        },
+        tick: function () {
+          if (mixers.length > 0) {
+            let total = 0;
+            for (var i = 0; i < mixers.length; i++) {
+              if (!mixers[i]) continue;
+              total++;
+              mixers[i].update(clock.getDelta());
+            }
+            if (total === 0) {
+              mixers = [];
+            }
+          }
+        },
+      });
+      AFRAME.registerComponent("treeman", {
+        init: function () {
+          let el = this.el;
+          let self = this;
+          self.trees = [];
+          this.mouseOverObject = null;
+          el.addEventListener("model-loaded", (e) => {
+            let tree3D = el.getObject3D("mesh");
+            if (!tree3D) {
+              return;
+            }
+            tree3D.traverse(function (node) {
+              if (node.isMesh) {
+                self.trees.push(node);
+              }
+            });
+          });
+
+          el.addEventListener("raycaster-intersected", (e) => {
+            self.raycaster = e.detail.el;
+            let intersection = self.raycaster.components.raycaster.getIntersection(
+              el
+            );
+            self.mouseOver = true;
+          });
+
+          el.addEventListener("raycaster-intersected-cleared", (e) => {
+            self.trees.forEach(function (tree) {
+              tree.material.emissive = new THREE.Color(0x000000);
+              tree.material.emissiveIntensity = 0.0;
+            });
+            self.mouseOverObject = null;
+            self.mouseOver = false;
+          });
+
+          el.addEventListener("click", function () {
+            if (!self.mouseOverObject) return;
+            const event = new Event("model-clicked", {
+              ambassador: el.getAttribute("data-ambassador"),
+              clickedModel: self.mouseOverObject.name,
+            });
+            document.dispatchEvent(event);
+          });
+          el.addEventListener("touchstart", function () {
+            const event = new Event("model-clicked", {
+              ambassador: el.getAttribute("data-ambassador"),
+              clickedModel: self.mouseOverObject.name,
+            });
+            document.dispatchEvent(event);
+          });
+          document.addEventListener("mousemove", (e) => {
+            if (!self.mouseOver) return;
+
+            let intersection = self.raycaster.components.raycaster.getIntersection(
+              el
+            );
+            if (
+              !self.mouseOverObject ||
+              self.mouseOverObject.name != intersection.object.name
+            ) {
+              intersection.object.material.emissive = new THREE.Color(0xffff00);
+              intersection.object.material.emissiveIntensity = 0.5;
+              if (self.mouseOverObject) {
+                self.mouseOverObject.material.emissive = new THREE.Color(
+                  0x000000
+                );
+                self.mouseOverObject.material.emissiveIntensity = 0.0;
+              }
+              self.mouseOverObject = intersection.object;
+            }
+          });
+          document.addEventListener("touchstart", (e) => {
+            if (!self.mouseOver) return;
+
+            let intersection = self.raycaster.components.raycaster.getIntersection(
+              el
+            );
+            if (
+              !self.mouseOverObject ||
+              self.mouseOverObject.name != intersection.object.name
+            ) {
+              intersection.object.material.emissive = new THREE.Color(0xffff00);
+              intersection.object.material.emissiveIntensity = 0.5;
+              if (self.mouseOverObject) {
+                self.mouseOverObject.material.emissive = new THREE.Color(
+                  0x000000
+                );
+                self.mouseOverObject.material.emissiveIntensity = 0.0;
+              }
+              self.mouseOverObject = intersection.object;
+            }
+          });
+        },
+        highlight: function () {},
+        deselect: function () {},
+      });
+    </script>
   </head>
-  <body>
+  <body style="width: 100vw; height: 100vh; overflow: hidden">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
