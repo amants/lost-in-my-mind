@@ -1,0 +1,36 @@
+{
+  "Joost": {
+    "knuppel": {
+      "title": "Knuppels",
+      "content": "Ik geloof dat hoe technologisch geavanceerder de mensheid hoe primitiever de mens zelf wordt.",
+      "image": "knuppel.png"
+    },
+    "USB": {
+      "title": "",
+      "content": "",
+      "image": ""
+    },
+    "appartement": {
+      "title": "",
+      "content": "",
+      "image": ""
+    }
+  },
+  "Lize": {
+    "Knuppel": {
+      "title": "",
+      "content": "",
+      "image": ""
+    },
+    "USB": {
+      "title": "",
+      "content": "",
+      "image": ""
+    },
+    "appartement": {
+      "title": "",
+      "content": "",
+      "image": ""
+    }
+  }
+}

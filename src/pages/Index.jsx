@@ -1,24 +1,8 @@
-import { useEffect } from "react";
-
 import ARCameraLayout from "../components/ARCameraLayout";
 
 import ambassadors from "../constants/ambassadors.json";
 
 const ARCamera = () => {
-  const openModal = (eventData) => {
-    console.log(eventData.detail);
-  };
-
-  useEffect(() => {
-    document.addEventListener("model-clicked", (eventData) => {
-      // Function to open model
-      openModal(eventData);
-    });
-
-    return () => {
-      document.removeEventListener("model-clicked", () => {});
-    };
-  }, []);
   return (
     <ARCameraLayout>
       <a-scene

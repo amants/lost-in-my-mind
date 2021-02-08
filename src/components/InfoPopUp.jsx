@@ -1,26 +1,23 @@
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const PopUpComponent = ({ dispatch }) => {
   const popUpRef = useRef();
+  const containerRef = useRef();
   const closePopUp = (e) => {
     if (e) e.preventDefault();
 
     popUpRef.current.style.opacity = 0;
+    containerRef.current.style.transform = "scale(0)";
     setTimeout(() => {
       dispatch();
     }, 200);
   };
 
-  useEffect(() => {
-    popUpRef.current.style.opacity = 1;
-  });
-
   return (
     <Background ref={popUpRef} onClick={closePopUp}>
-      <Container onClick={(e) => e.stopPropagation()}>
+      <Container ref={containerRef} onClick={(e) => e.stopPropagation()}>
         <Title>Verdwaal in mijn gedachten</Title>
         <Alinea>
           Leer onze 5 ambassadeurs op een unieke manier kennen. Neem een kijkje
@@ -33,7 +30,7 @@ const PopUpComponent = ({ dispatch }) => {
         </Alinea>
         <ButtonContainer>
           <Button onClick={closePopUp}>Sluiten</Button>
-          <Button to="/ambassadors" secondary>
+          <Button href="/ambassadors" secondary>
             Onze ambassadeurs
           </Button>
         </ButtonContainer>
@@ -53,11 +50,14 @@ const Background = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
-  opacity: 0;
+  z-index: 4;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-iteration-count: once;
   transition: all 0.2s ease;
 `;
 
@@ -69,6 +69,11 @@ const Container = styled.div`
   background: #f6d6c1;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+
+  animation-name: scale-in;
+  animation-duration: 0.2s;
+  animation-iteration-count: once;
+  transition: all 0.2s ease;
 `;
 
 const Title = styled.h2`
@@ -85,7 +90,7 @@ const Alinea = styled.p`
   color: #2e2457;
 `;
 
-const Button = styled(Link)`
+const Button = styled.a`
   text-decoration: none;
   width: 80%;
   margin: auto;

@@ -58,7 +58,7 @@ const LinkItem = styled.a`
 
   transition: all 0.2s ease;
 `;
-const TicketItem = styled.a`
+const TicketItem = styled.div`
   display: inline-flex;
   align-items: cemter;
   justify-content: center;
