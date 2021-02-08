@@ -1,36 +1,112 @@
 {
   "Joost": {
-    "knuppel": {
-      "title": "Knuppels",
-      "content": "Ik geloof dat hoe technologisch geavanceerder de mensheid hoe primitiever de mens zelf wordt.",
-      "image": "knuppel.png"
-    },
-    "USB": {
-      "title": "",
-      "content": "",
-      "image": ""
-    },
-    "appartement": {
-      "title": "",
-      "content": "",
-      "image": ""
+    "fullName": "Joost Vandecasteele",
+    "thumbnail": "thumbnail_joost.png",
+    "nameImage": "nameimage_joost.png",
+    "clickableModels": {
+      "knuppel": {
+        "title": "Knuppels",
+        "content": "Ik geloof dat hoe technologisch geavanceerder de mensheid hoe primitiever de mens zelf wordt.",
+        "image": "knuppel.png"
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "image": ""
+      }
     }
   },
   "Lize": {
-    "Knuppel": {
-      "title": "",
-      "content": "",
-      "image": ""
-    },
-    "USB": {
-      "title": "",
-      "content": "",
-      "image": ""
-    },
-    "appartement": {
-      "title": "",
-      "content": "",
-      "image": ""
+    "fullName": "Lize Spit",
+    "thumbnail": "thumbnail_lize.png",
+    "nameImage": "nameimage_lize.png",
+    "clickableModels": {
+      "Knuppel": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "image": ""
+      }
+    }
+  },
+  "Stefan": {
+    "fullName": "Stefan Hertmans",
+    "thumbnail": "thumbnail_stefan.png",
+    "nameImage": "nameimage_stefan.png",
+    "clickableModels": {
+      "Knuppel": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "image": ""
+      }
+    }
+  },
+  "Dalilla": {
+    "fullName": "Dalilla Hermans",
+    "thumbnail": "thumbnail_dalilla.png",
+    "nameImage": "nameimage_dalilla.png",
+    "clickableModels": {
+      "Knuppel": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "image": ""
+      }
+    }
+  },
+  "Anneleen": {
+    "fullName": "Anneleen Van Offel",
+    "thumbnail": "thumbnail_anneleen.png",
+    "nameImage": "nameimage_anneleen.png",
+    "clickableModels": {
+      "Knuppel": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "image": ""
+      }
     }
   }
 }

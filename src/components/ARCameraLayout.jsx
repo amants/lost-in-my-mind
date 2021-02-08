@@ -32,7 +32,7 @@ const ARCameraLayout = ({ children }) => {
     };
 
     const getAmbassadorData = (ambassador, model) => {
-      return ambassadorData?.[ambassador]?.[model];
+      return ambassadorData?.[ambassador]?.clickableModels?.[model];
     };
     const openModal = (eventData) => {
       console.log(eventData);
