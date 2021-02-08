@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import ARCamera from "../pages";
+import ARCamera from "../pages/index";
 import Ambassadors from "../pages/Ambassadors";
 
 const GlobalRouter = () => (

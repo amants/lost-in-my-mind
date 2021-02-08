@@ -83,6 +83,7 @@ const AmbassadorName = styled.p`
   line-height: 140%;
   color: #448774;
   font-weight: 700;
+  text-align: center;
   @media screen and (min-width: 1100px) {
     display: block;
   }
@@ -113,6 +114,7 @@ const AmbassadorImage = styled.img`
   z-index: 1;
 `;
 const AmbassadorNameImage = styled.img`
+  margin: auto;
   display: block;
   @media screen and (min-width: 1100px) {
     display: none;
