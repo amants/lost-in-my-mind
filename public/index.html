@@ -175,16 +175,20 @@
 
           el.addEventListener("click", function () {
             if (!self.mouseOverObject) return;
-            const event = new Event("model-clicked", {
-              ambassador: el.getAttribute("data-ambassador"),
-              clickedModel: self.mouseOverObject.name,
+            const event = new CustomEvent("model-clicked", {
+              detail: {
+                ambassador: el.getAttribute("data-ambassador"),
+                clickedModel: self.mouseOverObject.name,
+              },
             });
             document.dispatchEvent(event);
           });
           el.addEventListener("touchstart", function () {
-            const event = new Event("model-clicked", {
-              ambassador: el.getAttribute("data-ambassador"),
-              clickedModel: self.mouseOverObject.name,
+            const event = new CustomEvent("model-clicked", {
+              detail: {
+                ambassador: el.getAttribute("data-ambassador"),
+                clickedModel: self.mouseOverObject.name,
+              },
             });
             document.dispatchEvent(event);
           });
@@ -236,7 +240,7 @@
       });
     </script>
   </head>
-  <body style="width: 100vw; height: 100vh; overflow: hidden">
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

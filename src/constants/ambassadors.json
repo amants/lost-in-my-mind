@@ -1,0 +1,26 @@
+[
+  {
+    "dataId": "markerLize",
+    "model": "./models/Lize_world_aanpassing.gltf",
+    "name": "Lize",
+    "position": "0 -3 2",
+    "marker": "1",
+    "clickableObjects": ["Mesh"]
+  },
+  {
+    "dataId": "markerDalilla",
+    "model": "./models/Dalilla_world_aanpassing.gltf",
+    "name": "Dalilla",
+    "position": "0 -3 2",
+    "marker": "2",
+    "clickableObjects": ["Mesh"]
+  },
+  {
+    "dataId": "markerJoost",
+    "model": "./models/wereld_joost_aanpassing.gltf",
+    "name": "Joost",
+    "position": "0 -3 2",
+    "marker": "6",
+    "clickableObjects": ["Mesh"]
+  }
+]
