@@ -3,6 +3,10 @@
   src: url("./assets/fonts/gt-pressura-bold-web.woff") format("woff");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -14,6 +18,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.marker_joost {
+  width: 2rem;
+  height: 2rem;
+  background-color: pink;
 }
 
 code {

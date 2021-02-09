@@ -4,6 +4,7 @@ import styled from "styled-components";
 import InfoPopUp from "../components/InfoPopUp";
 import MenuPopUp from "../components/MenuPopUp";
 import AmbassadorPopUp from "../components/AmbassadorPopUp";
+import logo from "../assets/images/logo.svg";
 
 import ambassadorData from "../constants/ambassadorData.json";
 const ARCameraLayout = ({ children }) => {
@@ -66,7 +67,7 @@ const ARCameraLayout = ({ children }) => {
           dispatch={() => setAmbassadorPopup()}
         />
       )}
-      <Logo src="./assets/images/logo.svg"></Logo>
+      <Logo src={logo}></Logo>
       <Menu onClick={() => setShowMenu(true)}>Menu</Menu>
       <Info onClick={() => setShowInfo(true)}>Info</Info>
       <AframeContainer>{children}</AframeContainer>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
 
+import iconTickets from "../assets/images/icon-tickets.svg";
+
 const PopUpComponent = ({ dispatch }) => {
   const menuRef = useRef();
 
@@ -28,7 +30,7 @@ const PopUpComponent = ({ dispatch }) => {
         <LinkItem>Ambassadeurs</LinkItem>
         <LinkItem>
           <TicketItem>
-            <img src="./assets/images/icon-tickets.svg" alt="Icon tickets" />
+            <img src={iconTickets} alt="Icon tickets" />
             Tickets
           </TicketItem>
         </LinkItem>

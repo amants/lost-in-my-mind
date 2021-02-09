@@ -2,6 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow, Navigation } from "swiper";
+
+import leftArrow from "../assets/images/arrow_left.png";
+import rightArrow from "../assets/images/arrow_right.png";
+import swiperBG from "../assets/images/bg_swiper.png";
 import "swiper/swiper.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
 
@@ -40,7 +44,7 @@ const AmbassadorSwiper = () => {
         },
         1400: {
           initialSlide: 2,
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
       }}
       coverflowEffect={{
@@ -107,7 +111,7 @@ const AmbassadorImageBackGround = styled.div`
   z-index: 0;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(./assets/images/bg_swiper.png);
+  background-image: url(${swiperBG});
 `;
 
 const AmbassadorImage = styled.img`
@@ -164,12 +168,12 @@ const Slide = styled.div`
 
   & .prev_slider {
     opacity: ${({ index, active }) => (index !== 0 && active ? 1 : 0)};
-    background-image: url("./assets/images/arrow_left.png");
+    background-image: url(${leftArrow});
     left: 1rem;
   }
   & .next_slider {
     opacity: ${({ index, active }) => (index !== 4 && active ? 1 : 0)};
-    background-image: url("./assets/images/arrow_right.png");
+    background-image: url(${rightArrow});
     right: 1rem;
   }
 `;

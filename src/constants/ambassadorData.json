@@ -1,8 +1,13 @@
 {
   "Joost": {
     "fullName": "Joost Vandecasteele",
+    "key": "joost",
     "thumbnail": "thumbnail_joost.png",
     "nameImage": "nameimage_joost.png",
+    "marker": {
+      "long": 3.26487,
+      "lat": 50.82803
+    },
     "clickableModels": {
       "knuppel": {
         "title": "Knuppels",
@@ -25,6 +30,11 @@
     "fullName": "Lize Spit",
     "thumbnail": "thumbnail_lize.png",
     "nameImage": "nameimage_lize.png",
+    "key": "lize",
+    "marker": {
+      "long": 3.2570243639380347,
+      "lat": 50.82531467204208
+    },
     "clickableModels": {
       "Knuppel": {
         "title": "",
@@ -47,6 +57,11 @@
     "fullName": "Stefan Hertmans",
     "thumbnail": "thumbnail_stefan.png",
     "nameImage": "nameimage_stefan.png",
+    "key": "stefan",
+    "marker": {
+      "long": 3.272227921860833,
+      "lat": 50.83074889981052
+    },
     "clickableModels": {
       "Knuppel": {
         "title": "",
@@ -69,6 +84,11 @@
     "fullName": "Dalilla Hermans",
     "thumbnail": "thumbnail_dalilla.png",
     "nameImage": "nameimage_dalilla.png",
+    "key": "dalilla",
+    "marker": {
+      "long": 3.2749592049672396,
+      "lat": 50.824331346822134
+    },
     "clickableModels": {
       "Knuppel": {
         "title": "",
@@ -91,6 +111,11 @@
     "fullName": "Anneleen Van Offel",
     "thumbnail": "thumbnail_anneleen.png",
     "nameImage": "nameimage_anneleen.png",
+    "marker": {
+      "long": 3.2649427874906207,
+      "lat": 50.82491646276861
+    },
+    "key": "anneleen",
     "clickableModels": {
       "Knuppel": {
         "title": "",
