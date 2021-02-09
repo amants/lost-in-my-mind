@@ -91,6 +91,7 @@ const DesktopMap = styled.div`
 const MobileHeading = styled.header`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   align-items: center;
   @media screen and (min-width: 900px) {
     display: none;
@@ -210,7 +211,7 @@ const Heading = styled.div`
 
 const Title = styled.h2`
   font-weight: 900;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   line-height: 3.1rem;
   letter-spacing: 0.03em;
   margin: 0;

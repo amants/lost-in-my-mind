@@ -9,6 +9,7 @@ import swiperBG from "../assets/images/bg_swiper.png";
 import "swiper/swiper.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import UnlocksWrapper from "./UnlocksWrapper";
 
 const AmbassadorSwiper = () => {
   const { status, data } = useAmbassadorData();
@@ -71,20 +72,26 @@ const AmbassadorSwiper = () => {
             active={activeIndex === i}
             opacity={getOpacity(activeIndex, i)}
           >
-            <button className="prev_slider" />
-            <button className="next_slider" />
-            <ImageContainer>
-              <AmbassadorImage
-                src={`./assets/images/${ambassador.thumbnail}`}
+            <div className="slide__image_container">
+              <button className="prev_slider" />
+              <button className="next_slider" />
+              <ImageContainer>
+                <AmbassadorImage
+                  src={`./assets/images/${ambassador.thumbnail}`}
+                />
+                <AmbassadorImageBackGround className="ambassador__image_bg" />
+              </ImageContainer>
+              <AmbassadorNameImage
+                src={`./assets/images/${ambassador.nameImage}`}
               />
-              <AmbassadorImageBackGround className="ambassador__image_bg" />
-            </ImageContainer>
-            <AmbassadorNameImage
-              src={`./assets/images/${ambassador.nameImage}`}
+              <AmbassadorName className="ambassador_fullname">
+                {ambassador.fullName}
+              </AmbassadorName>
+            </div>
+            <UnlocksWrapper
+              active={activeIndex === i}
+              ambassador={ambassador}
             />
-            <AmbassadorName className="ambassador_fullname">
-              {ambassador.fullName}
-            </AmbassadorName>
           </Slide>
         </SwiperSlide>
       ))}
@@ -144,6 +151,14 @@ const Slide = styled.div`
   max-width: 800px;
   opacity: ${({ opacity }) => `${opacity}%`};
   transition: all 0.2s ease;
+
+  @media screen and (min-width: 1100px) {
+    padding-bottom: 8rem;
+  }
+
+  & > .slide__image_container {
+    position: relative;
+  }
 
   & .ambassador__image_bg {
     opacity: ${({ active }) => (active ? 1 : 0)};
