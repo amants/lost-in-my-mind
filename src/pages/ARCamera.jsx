@@ -1,8 +1,12 @@
 import ARCameraLayout from "../components/ARCameraLayout";
 
-import ambassadors from "../constants/ambassadors.json";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
 const ARCamera = () => {
+  const { data, status } = useAmbassadorData();
+
+  if (status !== "FETCHED") return "Loading";
+
   return (
     <ARCameraLayout>
       <a-scene
@@ -12,21 +16,21 @@ const ARCamera = () => {
         arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
         renderer="logarithmicDepthBuffer: true;colorManagement: true;"
       >
-        {ambassadors.map((ambassador, i) => (
+        {Object.keys(data).map((key) => (
           <a-marker
-            key={i}
+            key={key}
             markercomp
-            data-id={ambassador.dataId}
+            data-id={data[key]?.markerData?.dataId}
             type="barcode"
-            value={ambassador.marker}
+            value={data[key]?.markerData?.marker}
           >
             <a-entity
-              id={ambassador.dataId}
-              gltf-model={ambassador.model}
+              id={data[key]?.markerData?.dataId}
+              gltf-model={data[key]?.markerData?.model}
               scale="0.01 0.01 0.01"
               treeman
-              data-ambassador={ambassador.name}
-              position={ambassador.position}
+              data-ambassador={data[key]?.markerData?.name}
+              position={data[key]?.markerData?.position}
               rotation="-90 0 0"
               class="clickable"
             ></a-entity>

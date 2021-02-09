@@ -3,9 +3,10 @@ import styled from "styled-components";
 import ReactMapGL from "react-map-gl";
 import { Markers } from "./Markers";
 import { useDispatchMap } from "../hooks/useMapHook";
-import ambassadorData from "../constants/ambassadorData.json";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
 const AmbassadorMap = () => {
+  const { status, data } = useAmbassadorData();
   const [mapViewPort, setMapViewPort] = useState({
     height: "100%",
     width: "100%",
@@ -16,24 +17,28 @@ const AmbassadorMap = () => {
   const mapDispatch = useDispatchMap();
 
   useEffect(() => {
-    Object.values(ambassadorData).forEach((ambassador) => {
-      mapDispatch({
-        type: "ADD_MARKER",
-        payload: {
-          marker: {
-            coords: [ambassador?.marker?.long, ambassador?.marker?.lat],
-            name: ambassador.key,
+    if (status !== "FETCHED") return;
+    Object.keys(data).forEach((key) => {
+      data[key].markers.forEach(({ long, lat }) => {
+        mapDispatch({
+          type: "ADD_MARKER",
+          payload: {
+            marker: {
+              coords: [long, lat],
+              name: key,
+            },
           },
-        },
+        });
       });
     });
-  }, [mapDispatch]);
+  }, [data, status, mapDispatch]);
 
   return (
     <StyledReactMapGL
       {...mapViewPort}
       mapboxApiAccessToken="pk.eyJ1IjoicmV4YW5pIiwiYSI6ImNra3ZqbHpjeTF4ZHUybnFudTU1ZjdnNHkifQ.qsSBmCSGqB4moH92sZFTng"
       mapStyle="mapbox://styles/rexani/ckkxwqtc90yp617ppigqymx4g"
+      showUserLocation={true}
       onViewportChange={(e) => {
         delete e.width;
         delete e.height;
@@ -41,7 +46,6 @@ const AmbassadorMap = () => {
           ...prevValue,
           ...e,
         }));
-        console.log(e);
       }}
     >
       <Markers />

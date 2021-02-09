@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow, Navigation } from "swiper";
@@ -8,12 +8,18 @@ import rightArrow from "../assets/images/arrow_right.png";
 import swiperBG from "../assets/images/bg_swiper.png";
 import "swiper/swiper.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
-
-import ambassadors from "../constants/ambassadorData.json";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
 const AmbassadorSwiper = () => {
+  const { status, data } = useAmbassadorData();
+
+  const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   SwiperCore.use([EffectCoverflow, Navigation]);
+
+  useEffect(() => {
+    if (status === "FETCHED") setLoading(false);
+  }, [status]);
 
   const getOpacity = (currentIndex, index) => {
     const MAX = 100;
@@ -21,6 +27,8 @@ const AmbassadorSwiper = () => {
     if (difference < 0) difference *= -1;
     return MAX - difference * 20;
   };
+
+  if (loading) return "Loading";
 
   return (
     <Swiper
@@ -56,7 +64,7 @@ const AmbassadorSwiper = () => {
       slideToClickedSlide
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
     >
-      {Object.values(ambassadors).map((ambassador, i) => (
+      {Object.values(data).map((ambassador, i) => (
         <SwiperSlide key={i}>
           <Slide
             index={i}

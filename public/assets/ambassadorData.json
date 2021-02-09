@@ -1,0 +1,221 @@
+{
+  "Joost": {
+    "fullName": "Joost Vandecasteele",
+    "thumbnail": "thumbnail_joost.png",
+    "nameImage": "nameimage_joost.png",
+    "markerImage": "marker-joost.png",
+    "colors": {
+      "background": "#1A212A",
+      "titleColor": "#FF5956",
+      "textColor": "white"
+    },
+    "markerData": {
+      "dataId": "markerJoost",
+      "model": "./models/wereld_joost_aanpassing.gltf",
+      "name": "Joost",
+      "position": "0 -3 2",
+      "marker": "1"
+    },
+    "markers": [
+      {
+        "long": 3.26487,
+        "lat": 50.82803
+      }
+    ],
+    "clickableModels": {
+      "knuppel": {
+        "title": "Knuppels",
+        "content": "Ik geloof dat hoe technologisch geavanceerder de mensheid hoe primitiever de mens zelf wordt.",
+        "modelClickNames": ["knuppel", "Cube2", "Cube13"],
+        "image": "joost-knuppel.png"
+      },
+      "USB": {
+        "title": "USB-kabels",
+        "content": "Ik geloof dat de permanente toegang tot het internet ervoor zorgt dat de virussen die online ronddwalen ook in de realiteit binnensijpelen.",
+        "modelClickNames": ["USB", "Extrude", "Cube14"],
+        "image": "joost-usb.png"
+      },
+      "appartement": {
+        "title": "Woontorens",
+        "content": "Ik geloof dat het op elkaar stapelen van mensen rare dingen veroorzaakt in de kop, een soort architecturale psychose.",
+        "modelClickNames": [
+          "appartement",
+          "Cube20",
+          "Cube15",
+          "Cube18",
+          "Cube17",
+          "Cube12",
+          "Cube23"
+        ],
+        "image": "joost-woontorens.png"
+      }
+    }
+  },
+  "Lize": {
+    "fullName": "Lize Spit",
+    "markerData": {
+      "dataId": "markerLize",
+      "model": "./models/Lize_world_aanpassing.gltf",
+      "name": "Lize",
+      "position": "0 -3 2",
+      "marker": "6"
+    },
+    "thumbnail": "thumbnail_lize.png",
+    "nameImage": "nameimage_lize.png",
+    "markerImage": "marker-lize.png",
+    "markers": [
+      {
+        "long": 3.2570243639380347,
+        "lat": 50.82531467204208
+      }
+    ],
+    "clickableModels": {
+      "berg": {
+        "title": "Berg",
+        "content": "Ik ben onzeker over wat ik aak en denk altijd meteen als ik een verzoek krijg van een organisatie: dit ga ik niet kunnen. Alsof ik voor een hoge berg sta zonder ervaring. Daardoor heb ik de neiging om op veel verzoeken 'nee' te zeggen. Ik probeer echter toch wel eens 'ja' te zeggen, en dan toch die berg te beklimmen.",
+        "modelClickNames": [],
+        "image": "lize-berg.png"
+      },
+      "camera": {
+        "title": "Camera",
+        "content": "Ik ben opgeleid als scenarist en daardoor ook gevormd in hoe ik boeken schrijf. Ik bouw een boek op uit scenes, en voor mij dient mijn hoofdpersonage als een soort camera die alles registreert en dit aan de lezer doorgeeft. Ik hoop in een volgend boek eens gebruik te maken van een alwetende verteller, zodat ik op een andere manier het verhaal moet 'capteren'.",
+        "modelClickNames": [],
+        "image": "lize-camera.png"
+      },
+      "kaartenhuis": {
+        "title": "Kaartenhuis",
+        "content": "Ik bouw mijn boeken en verhalen op als een kaartenhuisje, voeg langzaam laag voor laag toe. Elke speelkaart is nodig, bevat informatie voor het verhaal. Het is een delicate manier van bouwen, het verhaal valt uit elkaar als je stukken wegneemt.",
+        "modelClickNames": [],
+        "image": "lize-kaartenhuis.png"
+      },
+      "woestijn": {
+        "title": "Woestijn",
+        "content": "Als ik schrijf, zonder ik me emotioneel af van anderen en maak ik het mezelf ook vaak moeilijk qua manier van werken. Ik put mezelf vaak uit, omdat ik niet wil ophouden met werken, ook al voelt het als ploeteren door een droge woestijn. Je weet nooit zeker of wat je schrijft goed genoeg is, maar als je fysiek uitgeput bent of je jezelf helemaal leeg schrijft, dan is dat wel de feedback die je krijgt dat je weet dat je alles hebt gegeven wat je in je had.",
+        "modelClickNames": [],
+        "image": "lize-woestijn.png"
+      },
+      "puzzelstukjes": {
+        "title": "Puzzelstukjes",
+        "content": "Schrijven is een verhaal vertellen door voor de lezer nauwkeurig de juiste puzzelstukjes één voor één in elkaar te klikken",
+        "modelClickNames": [],
+        "image": "lize-puzzel.png"
+      },
+      "penseel": {
+        "title": "Penseel met 1 haartje",
+        "content": "Ik ben enorm perfectionistisch en werk erg gedetailleerd. Soms verlies ik me daarin, en verlies ik het werkplezier uit het oog. Tegelijk typeert die zorgvuldige manier van schrijven ook mijn schrijverschap.",
+        "modelClickNames": [],
+        "image": "lize-penseel.png"
+      }
+    }
+  },
+  "Stefan": {
+    "fullName": "Stefan Hertmans",
+    "thumbnail": "thumbnail_stefan.png",
+    "nameImage": "nameimage_stefan.png",
+    "markerImage": "marker-stefan.png",
+    "markers": [
+      {
+        "long": 3.272227921860833,
+        "lat": 50.83074889981052
+      }
+    ],
+    "clickableModels": {
+      "Knuppel": {
+        "title": "",
+        "content": "",
+        "modelClickNames": [],
+        "image": ""
+      },
+      "USB": {
+        "title": "",
+        "content": "",
+        "modelClickNames": [],
+        "image": ""
+      },
+      "appartement": {
+        "title": "",
+        "content": "",
+        "modelClickNames": [],
+        "image": ""
+      }
+    }
+  },
+  "Dalilla": {
+    "fullName": "Dalilla Hermans",
+    "thumbnail": "thumbnail_dalilla.png",
+    "nameImage": "nameimage_dalilla.png",
+    "markerImage": "marker-dalilla.png",
+    "markerData": {
+      "dataId": "markerDalilla",
+      "model": "./models/Dalilla_world_aanpassing.gltf",
+      "name": "Dalilla",
+      "position": "0 -3 2",
+      "marker": "1"
+    },
+    "markers": [
+      {
+        "long": 3.2749592049672396,
+        "lat": 50.824331346822134
+      }
+    ],
+    "clickableModels": {
+      "parfum": {
+        "title": "Parfum",
+        "content": "Geuren staan voor liefde en warme herinneringen. De geur van mijn kinderen hun hoofdje bijvoorbeeld. Of de geur van mijn mama haar woonkamer.",
+        "modelClickNames": [],
+        "image": "dalilla-parfum.png"
+      },
+      "plant": {
+        "title": "Plant",
+        "content": "Die staat voor rust, peace of mind en een 'leeg hoofd'. Ik schrijf vaak buiten en wordt helder in de natuur.",
+        "modelClickNames": [],
+        "image": "dalilla-plant.png"
+      },
+      "fotoalbum": {
+        "title": "Fotoalbum",
+        "content": "Ik schrijf altijd over mensen. Mensen inspireren me, in al hun verscheidenheid. Menselijk gedrag bestuderen is mijn favoriete vorm van research. Een boek vol portretten dus.",
+        "modelClickNames": [],
+        "image": "dalilla-fotoalbum.png"
+      }
+    }
+  },
+  "Anneleen": {
+    "fullName": "Anneleen Van Offel",
+    "thumbnail": "thumbnail_anneleen.png",
+    "nameImage": "nameimage_anneleen.png",
+    "markerImage": "marker-anneleen.png",
+    "markerData": {
+      "dataId": "markerAnneleen",
+      "model": "./models/anneleen_world_aanpassing.gltf",
+      "name": "Anneleen",
+      "position": "0 -3 2",
+      "marker": "4"
+    },
+    "markers": [
+      {
+        "long": 3.2649427874906207,
+        "lat": 50.82491646276861
+      }
+    ],
+    "clickableModels": {
+      "vuurpook": {
+        "title": "Vuurpook",
+        "content": "Anneleen laat haar creatief vuur aanwakkeren door beeldende kunst. Voornamelijk uit het werk van Berline de Bruyckere.",
+        "modelClickNames": [],
+        "image": "anneleen-vuurpook.png"
+      },
+      "wereldkaart": {
+        "title": "Wereldkaart",
+        "content": "Voor anneleens boek 'Hier is alles veilig' heeft ze er 4 researchreizen op ziten.",
+        "modelClickNames": [],
+        "image": "anneleen-wereldkaart.png"
+      },
+      "koekoeksklok": {
+        "title": "Koekoeksklok",
+        "content": "Anneleens gedachten zijn altijd druk en voortdurend aan het pingpongen met ideeën.",
+        "modelClickNames": [],
+        "image": "anneleen-koekoeksklok.png"
+      }
+    }
+  }
+}

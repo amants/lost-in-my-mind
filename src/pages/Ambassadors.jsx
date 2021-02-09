@@ -89,7 +89,9 @@ const DesktopMap = styled.div`
 `;
 
 const MobileHeading = styled.header`
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   @media screen and (min-width: 900px) {
     display: none;
   }

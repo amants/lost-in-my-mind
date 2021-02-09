@@ -5,46 +5,41 @@ import InfoPopUp from "../components/InfoPopUp";
 import MenuPopUp from "../components/MenuPopUp";
 import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import logo from "../assets/images/logo.svg";
-
-import ambassadorData from "../constants/ambassadorData.json";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
 const ARCameraLayout = ({ children }) => {
   const [showInfo, setShowInfo] = useState(
     !sessionStorage.getItem("info-seen")
   );
+  const ambassadorData = useAmbassadorData();
   const [showMenu, setShowMenu] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
 
   useEffect(() => {
+    if (ambassadorData?.status !== "FETCHED") return;
+    const { data } = ambassadorData || {};
     const getAmbassadorColors = (ambassador) => {
-      switch (ambassador) {
-        case "Lize":
-          break;
-        case "Dalilla":
-          break;
-        case "Joost":
-          return {
-            background: "#1A212A",
-            titleColor: "#FF5956",
-            textColor: "white",
-          };
-        default:
-          return {
-            background: "pink",
-          };
-      }
+      return data?.[ambassador]?.colors;
     };
 
     const getAmbassadorData = (ambassador, model) => {
-      return ambassadorData?.[ambassador]?.clickableModels?.[model];
+      let tempModelData;
+      Object.values(data?.[ambassador]?.clickableModels)?.forEach(
+        (modelData) => {
+          if (modelData?.modelClickNames?.includes(model)) {
+            tempModelData = modelData;
+          }
+        }
+      );
+      return tempModelData;
     };
     const openModal = (eventData) => {
-      console.log(eventData);
       const { ambassador, clickedModel } = eventData?.detail || {};
-      const ambassadorData = getAmbassadorData(ambassador, clickedModel);
-      if (!ambassadorData) return;
+      console.log(clickedModel);
+      const modalData = getAmbassadorData(ambassador, clickedModel);
+      if (!modalData) return;
       setAmbassadorPopup({
         colors: getAmbassadorColors(ambassador),
-        content: ambassadorData,
+        content: modalData,
       });
     };
 
@@ -55,7 +50,7 @@ const ARCameraLayout = ({ children }) => {
     return () => {
       document.removeEventListener("model-clicked", () => {});
     };
-  }, []);
+  }, [ambassadorData]);
 
   return (
     <>

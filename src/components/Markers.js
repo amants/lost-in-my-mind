@@ -2,30 +2,16 @@ import React from "react";
 import { Marker } from "react-map-gl";
 import { useStateMap } from "../hooks/useMapHook";
 import styled from "styled-components";
-import markerJoost from "../assets/images/marker-joost.png";
-import markerStefan from "../assets/images/marker-stefan.png";
-import markerLize from "../assets/images/marker-lize.png";
-import markerDalilla from "../assets/images/marker-dalilla.png";
-import markerAnneleen from "../assets/images/marker-anneleen.png";
-import markerDefault from "../assets/images/marker-joost.png";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
+
 export const Markers = () => {
+  const { data, status } = useAmbassadorData();
   const getMarkerImage = (ambassador_name) => {
-    switch (ambassador_name) {
-      case "joost":
-        return markerJoost;
-      case "stefan":
-        return markerStefan;
-      case "dalilla":
-        return markerDalilla;
-      case "anneleen":
-        return markerAnneleen;
-      case "lize":
-        return markerLize;
-      default:
-        return markerDefault;
-    }
+    return data[ambassador_name]?.markerImage;
   };
   const { markers } = useStateMap();
+
+  if (status !== "FETCHED") return "Loading";
   return (
     <>
       {markers?.map((marker, index) => (
@@ -36,8 +22,10 @@ export const Markers = () => {
           latitude={marker.coords[1]}
           longitude={marker.coords[0]}
         >
-          {console.log(marker)}
-          <MarkerImage src={getMarkerImage(marker.name)} alt="Marker_image" />
+          <MarkerImage
+            src={`./assets/images/${getMarkerImage(marker.name)}`}
+            alt="Marker_image"
+          />
         </Marker>
       ))}
     </>

@@ -108,14 +108,14 @@
             `#${this.el.getAttribute("data-id")}`
           );
           el.addEventListener("markerFound", (e) => {
-            const modelItem = model.getObject3D("mesh");
-            const animation = modelItem.animations[0];
-            var mixer = new THREE.AnimationMixer(modelItem);
-            var action = mixer.clipAction(animation);
-            action.setLoop(THREE.LoopOnce);
-            action.clampWhenFinished = true;
-            action.play();
-            mixers.push(mixer);
+            // const modelItem = model.getObject3D("mesh");
+            // const animation = modelItem.animations[0];
+            // var mixer = new THREE.AnimationMixer(modelItem);
+            // var action = mixer.clipAction(animation);
+            // action.setLoop(THREE.LoopOnce);
+            // action.clampWhenFinished = true;
+            // action.play();
+            // mixers.push(mixer);
           });
           el.addEventListener("markerLost", (e) => {
             // your code here}
