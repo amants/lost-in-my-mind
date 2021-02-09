@@ -156,6 +156,10 @@ const RightSideHeading = styled.div`
 
   & > p {
     font-weight: normal;
+
+    & > span {
+      color: #f2a655;
+    }
   }
 `;
 
