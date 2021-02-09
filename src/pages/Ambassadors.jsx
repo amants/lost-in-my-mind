@@ -56,7 +56,7 @@ const Ambassadors = () => {
         </RightSideMap>
       </DesktopMap>
       <ButtonContainer>
-        <Button href="/map">Zoek interactieve affiches</Button>
+        <Button href="/kaart">Zoek interactieve affiches</Button>
         <Button href="/" secondary>
           Open AR-Lens
           <ButtonIcon src={cameraIcon} />
