@@ -11,7 +11,7 @@ import "swiper/components/effect-coverflow/effect-coverflow.scss";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
 import UnlocksWrapper from "./UnlocksWrapper";
 
-const AmbassadorSwiper = () => {
+const AmbassadorSwiper = ({ setAmbassadorPopup }) => {
   const { status, data } = useAmbassadorData();
   const unlockedData = JSON.parse(localStorage.getItem("unlocked-ambassadors"));
   const [loading, setLoading] = useState(true);
@@ -89,6 +89,7 @@ const AmbassadorSwiper = () => {
               </AmbassadorName>
             </div>
             <UnlocksWrapper
+              setAmbassadorPopup={setAmbassadorPopup}
               unlockedData={unlockedData}
               active={activeIndex === i}
               ambassador={ambassador}

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-const UnlocksItem = ({ data, colors, unlocked }) => {
+const UnlocksItem = ({ data, colors, unlocked, showElementPopUp, itemKey }) => {
   return (
-    <Container unlocked={unlocked} colors={colors}>
+    <Container
+      unlocked={unlocked}
+      colors={colors}
+      onClick={() => showElementPopUp(itemKey)}
+    >
       <img src={`./assets/images/${data?.image}`} alt="Unlock" />
       <h3>{data?.title}</h3>
     </Container>
@@ -17,7 +21,8 @@ const Container = styled.a`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  ${({ unlocked }) => !unlocked && `filter: contrast(0); opacity: 0.5;`}
+  ${({ unlocked }) =>
+    !unlocked && `pointer-events: none; filter: contrast(0); opacity: 0.5;`}
   border-radius: 1rem;
   background-color: #d6846622;
   border: 1px solid ${({ colors }) => colors?.background};
@@ -38,6 +43,12 @@ const Container = styled.a`
     max-height: 5rem;
     max-width: 80%;
   }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  transition: all 0.2s ease;
 `;
 
 export default UnlocksItem;

@@ -1,12 +1,24 @@
 import styled from "styled-components";
 import UnlocksItem from "./UnlocksItem";
 
-const UnlocksWrapper = ({ ambassador, active, unlockedData }) => {
+const UnlocksWrapper = ({
+  ambassador,
+  active,
+  unlockedData,
+  setAmbassadorPopup,
+}) => {
+  const showElementPopUp = (elementKey) => {
+    setAmbassadorPopup({
+      colors: ambassador?.colors,
+      content: ambassador?.clickableModels?.[elementKey],
+    });
+  };
   return (
     <Container active={active}>
       {Object.keys(ambassador?.clickableModels)?.map((key) => (
         <UnlocksItem
           data={ambassador?.clickableModels?.[key]}
+          showElementPopUp={showElementPopUp}
           unlocked={unlockedData?.[ambassador?.key]?.includes(key)}
           itemKey={key}
           key={key}

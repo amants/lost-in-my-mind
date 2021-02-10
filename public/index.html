@@ -37,50 +37,6 @@
     <!-- A FRAME -->
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script>
-      ARjs.Source.prototype.copyElementSizeTo = function (otherElement) {
-        if (window.innerWidth > window.innerHeight) {
-          //landscape
-          otherElement.style.width = this.domElement.style.width;
-          const height = (parseInt(otherElement.style.width) * 3) / 4;
-          otherElement.style.height = height + "px";
-          otherElement.style.marginLeft = 0;
-          otherElement.style.marginTop =
-            (window.innerHeight - height) / 2 + "px";
-        } else {
-          //portrait
-          otherElement.style.height = this.domElement.style.height;
-          const width = (parseInt(otherElement.style.height) * 4) / 3;
-          otherElement.style.width = width + "px";
-          otherElement.style.marginLeft =
-            (window.innerWidth - width) / 2 + "px";
-          otherElement.style.marginTop = 0;
-        }
-      };
-      window.addEventListener("orientationchange", () => {
-        console.log("test");
-        // On non-orientable device, isLandscape is set to true
-        const isLandscape =
-          window.orientation !== undefined
-            ? window.orientation === -90 || window.orientation === 90
-            : true;
-
-        // Store the current artoolkit projection matrix
-        let matrix = artoolkitContext.getProjectionMatrix();
-
-        // If the device is in landscape mode, we scale the matrix to invert the aspect ratio.
-        // I use 4 / 3 because my artoolkitSource is set to 640 x 480.
-        if (isLandscape) {
-          mat = mat.clone();
-          const ratio = 4 / 3;
-          matrix.elements[0] *= ratio;
-          matrix.elements[5] *= 1 / ratio;
-        }
-
-        // Update the projection matrix of the camera
-        camera.projectionMatrix.copy(matrix);
-      });
-    </script>
     <!-- <script src="%PUBLIC_URL%/js/aframe-ar.js"></script> -->
     <script src="https://raw.githack.com/matrix-org/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -105,7 +61,6 @@
       var clock = new THREE.Clock();
       AFRAME.registerComponent("markercomp", {
         init: function () {
-          console.log("marker initialized", this.el);
           let el = this.el;
           let self = this;
           const model = document.querySelector(

@@ -6,11 +6,19 @@ import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
 import headerAmbassadorsImage from "../assets/images/header_ambassadors.png";
 import cameraIcon from "../assets/images/camera-icon.svg";
 import AmbassadorMap from "../components/AmbassadorMap";
+import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import { MapProvider } from "../hooks/useMapHook";
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
+  const [ambassadorPopUp, setAmbassadorPopup] = useState();
   return (
     <Layout>
+      {ambassadorPopUp && (
+        <AmbassadorPopUp
+          ambassadorPopUp={ambassadorPopUp}
+          dispatch={() => setAmbassadorPopup()}
+        />
+      )}
       {showInfo && <InfoPopUpAmbassadors dispatch={() => setShowInfo(false)} />}
       <Heading>
         <DesktopHeading>
@@ -34,7 +42,7 @@ const Ambassadors = () => {
           <Information onClick={() => setShowInfo(true)}>i</Information>
         </MobileHeading>
       </Heading>
-      <AmbassadorSwiper />
+      <AmbassadorSwiper setAmbassadorPopup={setAmbassadorPopup} />
       <DesktopMap>
         <LeftSideMap>
           <h2>Verdwaal in mijn Gedachten</h2>
@@ -206,6 +214,10 @@ const Button = styled.a`
   color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
   border: 2px solid #f2a655;
   border-radius: 5px;
+  &:active {
+    transform: scale(0.95);
+  }
+  transition: all 0.2s ease;
 `;
 
 const Heading = styled.div`
