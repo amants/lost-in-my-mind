@@ -116,6 +116,14 @@
   },
   "Stefan": {
     "fullName": "Stefan Hertmans",
+    "markerData": {
+      "dataId": "markerLize",
+      "model": "./models/Lize.gltf",
+      "name": "Lize",
+      "position": "0 0 0",
+      "marker": "1",
+      "markerName": "marker-stefan"
+    },
     "thumbnail": "thumbnail_stefan.png",
     "nameImage": "nameimage_stefan.png",
     "markerImage": "marker-stefan.png",
