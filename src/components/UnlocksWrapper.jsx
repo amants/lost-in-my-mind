@@ -15,6 +15,13 @@ const UnlocksWrapper = ({
   };
   return (
     <Container active={active}>
+      {(!unlockedData?.[ambassador?.key]?.length ||
+        unlockedData?.[ambassador?.key]?.length === 0) && (
+        <NoItemsUnlocked>
+          <h4>Elementen uit de wereld nog niet beschikbaar</h4>
+          <p>Scan de affiche en vind de elementen om ze vrij te spelen</p>
+        </NoItemsUnlocked>
+      )}
       {Object.keys(ambassador?.clickableModels)?.map((key) => (
         <UnlocksItem
           data={ambassador?.clickableModels?.[key]}
@@ -28,6 +35,24 @@ const UnlocksWrapper = ({
     </Container>
   );
 };
+
+const NoItemsUnlocked = styled.div`
+  text-align: center;
+  font-weight: bold;
+  color: #342a63;
+  grid-column: 1 / span 3;
+  font-family: gt-pressura, sans-serif;
+
+  & > h4 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  & > p {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+`;
 
 const Container = styled.div`
   display: grid;

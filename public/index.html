@@ -36,7 +36,7 @@
     />
     <!-- A FRAME -->
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <!-- <script src="%PUBLIC_URL%/js/aframe-ar.js"></script> -->
     <script src="https://raw.githack.com/matrix-org/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -67,14 +67,14 @@
             `#${this.el.getAttribute("data-id")}`
           );
           el.addEventListener("markerFound", (e) => {
-            // const modelItem = model.getObject3D("mesh");
-            // const animation = modelItem.animations[0];
-            // var mixer = new THREE.AnimationMixer(modelItem);
-            // var action = mixer.clipAction(animation);
-            // action.setLoop(THREE.LoopOnce);
-            // action.clampWhenFinished = true;
-            // action.play();
-            // mixers.push(mixer);
+            const modelItem = model.getObject3D("mesh");
+            const animation = modelItem.animations[0];
+            var mixer = new THREE.AnimationMixer(modelItem);
+            var action = mixer.clipAction(animation);
+            action.setLoop(THREE.LoopOnce);
+            action.clampWhenFinished = true;
+            action.play();
+            mixers.push(mixer);
           });
           el.addEventListener("markerLost", (e) => {
             // your code here}

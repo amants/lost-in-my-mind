@@ -14,7 +14,7 @@
       "dataId": "markerJoost",
       "model": "./models/wereld_joost_aanpassing.gltf",
       "name": "Joost",
-      "position": "0 -3 2",
+      "position": "0 0 0",
       "marker": "6"
     },
     "markers": [
@@ -64,6 +64,11 @@
     "thumbnail": "thumbnail_lize.png",
     "nameImage": "nameimage_lize.png",
     "markerImage": "marker-lize.png",
+    "colors": {
+      "background": "#B5E8E8",
+      "titleColor": "#16627A",
+      "textColor": "black"
+    },
     "markers": [
       {
         "long": 3.2570243639380347,
@@ -114,6 +119,11 @@
     "thumbnail": "thumbnail_stefan.png",
     "nameImage": "nameimage_stefan.png",
     "markerImage": "marker-stefan.png",
+    "colors": {
+      "background": "#B5E8E8",
+      "titleColor": "#16627A",
+      "textColor": "black"
+    },
     "markers": [
       {
         "long": 3.272227921860833,
@@ -146,6 +156,11 @@
     "thumbnail": "thumbnail_dalilla.png",
     "nameImage": "nameimage_dalilla.png",
     "markerImage": "marker-dalilla.png",
+    "colors": {
+      "background": "#F8EEC4",
+      "titleColor": "#638D69",
+      "textColor": "black"
+    },
     "markerData": {
       "dataId": "markerDalilla",
       "model": "./models/Dalilla_world_aanpassing.gltf",
@@ -185,6 +200,11 @@
     "thumbnail": "thumbnail_anneleen.png",
     "nameImage": "nameimage_anneleen.png",
     "markerImage": "marker-anneleen.png",
+    "colors": {
+      "background": "#CC9F69",
+      "titleColor": "#552B0C",
+      "textColor": "black"
+    },
     "markerData": {
       "dataId": "markerAnneleen",
       "model": "./models/anneleen_world_aanpassing.gltf",
