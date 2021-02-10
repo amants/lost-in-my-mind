@@ -168,52 +168,6 @@ const RightSideHeading = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: grid;
-  z-index: 9;
-  padding: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-  background-color: white;
-  border-top: 2px solid #f2a655;
-
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
-`;
-
-const ButtonIcon = styled.img`
-  margin-left: 1rem;
-`;
-
-const Button = styled.a`
-  text-decoration: none;
-  width: 100%;
-  margin: auto;
-  height: 5rem;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  z-index: 10;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${({ secondary }) => (secondary ? "white" : "#f2a655")};
-  color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
-  border: 2px solid #f2a655;
-  border-radius: 5px;
-  &:active {
-    transform: scale(0.95);
-  }
-  transition: all 0.2s ease;
-`;
-
 const Heading = styled.div`
   display: flex;
   align_items: center;

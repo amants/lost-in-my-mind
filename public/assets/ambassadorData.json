@@ -5,6 +5,7 @@
     "thumbnail": "thumbnail_joost.png",
     "nameImage": "nameimage_joost.png",
     "markerImage": "marker-joost.png",
+    "selectedMarkerImage": "selected-marker-joost.png",
     "colors": {
       "background": "#1A212A",
       "titleColor": "#FF5956",
@@ -64,6 +65,7 @@
     "thumbnail": "thumbnail_lize.png",
     "nameImage": "nameimage_lize.png",
     "markerImage": "marker-lize.png",
+    "selectedMarkerImage": "selected-marker-lize.png",
     "colors": {
       "background": "#B5E8E8",
       "titleColor": "#16627A",
@@ -117,9 +119,9 @@
   "Stefan": {
     "fullName": "Stefan Hertmans",
     "markerData": {
-      "dataId": "markerLize",
+      "dataId": "markerStefan",
       "model": "./models/Lize.gltf",
-      "name": "Lize",
+      "name": "Stefan",
       "position": "0 0 0",
       "marker": "1",
       "markerName": "marker-stefan"
@@ -127,6 +129,7 @@
     "thumbnail": "thumbnail_stefan.png",
     "nameImage": "nameimage_stefan.png",
     "markerImage": "marker-stefan.png",
+    "selectedMarkerImage": "selected-marker-stefan.png",
     "colors": {
       "background": "#B5E8E8",
       "titleColor": "#16627A",
@@ -164,6 +167,7 @@
     "thumbnail": "thumbnail_dalilla.png",
     "nameImage": "nameimage_dalilla.png",
     "markerImage": "marker-dalilla.png",
+    "selectedMarkerImage": "selected-marker-dalilla.png",
     "colors": {
       "background": "#F8EEC4",
       "titleColor": "#638D69",
@@ -208,6 +212,7 @@
     "thumbnail": "thumbnail_anneleen.png",
     "nameImage": "nameimage_anneleen.png",
     "markerImage": "marker-anneleen.png",
+    "selectedMarkerImage": "selected-marker-anneleen.png",
     "colors": {
       "background": "#CC9F69",
       "titleColor": "#552B0C",
