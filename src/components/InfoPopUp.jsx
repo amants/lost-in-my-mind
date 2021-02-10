@@ -31,9 +31,6 @@ const PopUpComponent = ({ dispatch }) => {
         </Alinea>
         <ButtonContainer>
           <Button onClick={closePopUp}>Sluiten</Button>
-          <Button href="/ambassadeurs" secondary>
-            Onze ambassadeurs
-          </Button>
         </ButtonContainer>
       </Container>
     </Background>

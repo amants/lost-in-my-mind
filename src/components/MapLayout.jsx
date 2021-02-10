@@ -173,8 +173,8 @@ const Container = styled.div`
 `;
 
 const Menu = styled.a`
-  position: absolute;
-  right: 1.5rem;
+  position: fixed;
+  right: 2rem;
   top: 3rem;
   background-color: #2e2457;
   font-weight: 700;
@@ -182,7 +182,7 @@ const Menu = styled.a`
   color: #fff2ea;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.125rem;
+  font-size: 1.475rem;
   z-index: 2;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;

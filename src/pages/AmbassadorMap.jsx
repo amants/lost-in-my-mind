@@ -4,6 +4,7 @@ import Layout from "../components/MapLayout";
 import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
 import AmbassadorMap from "../components/AmbassadorMap";
 import { MapProvider } from "../hooks/useMapHook";
+import AppNav from "../components/AppNav";
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
   return (
@@ -14,6 +15,7 @@ const Ambassadors = () => {
           <AmbassadorMap />
         </MapProvider>
       </Container>
+      <AppNav activePage="map" />
     </Layout>
   );
 };

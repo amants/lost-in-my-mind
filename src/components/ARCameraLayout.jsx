@@ -7,6 +7,7 @@ import MenuPopUp from "../components/MenuPopUp";
 import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import logo from "../assets/images/logo.svg";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import AppNav from "./AppNav";
 const ARCameraLayout = ({ children }) => {
   const ambassadorData = useAmbassadorData();
   const [showInfo, setShowInfo] = useState(
@@ -79,6 +80,7 @@ const ARCameraLayout = ({ children }) => {
       <Logo src={logo}></Logo>
       <Menu onClick={() => setShowMenu(true)}>Menu</Menu>
       <Info onClick={() => setShowInfo(true)}>Info</Info>
+      <AppNav activePage="camera" />
       <AframeContainer>{children}</AframeContainer>
     </>
   );
@@ -96,7 +98,7 @@ const AframeContainer = styled.div`
 
 const Menu = styled.a`
   position: fixed;
-  right: 1.5rem;
+  right: 2rem;
   top: 3rem;
   background-color: #2e2457;
   font-weight: 700;
@@ -104,7 +106,7 @@ const Menu = styled.a`
   color: #fff2ea;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.125rem;
+  font-size: 1.475rem;
   z-index: 2;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
@@ -112,7 +114,7 @@ const Menu = styled.a`
 
 const Logo = styled.img`
   position: fixed;
-  left: 1.5rem;
+  left: 2rem;
   z-index: 7;
   top: 1rem;
   width: 6rem;
@@ -120,8 +122,8 @@ const Logo = styled.img`
 
 const Info = styled.a`
   position: fixed;
-  left: 1.5rem;
-  bottom: 1.5rem;
+  left: 2rem;
+  bottom: 11rem;
   z-index: 2;
   position: absolute;
   background-color: #f2a655;
@@ -130,7 +132,7 @@ const Info = styled.a`
   color: white;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.125rem;
+  font-size: 1.475rem;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 `;

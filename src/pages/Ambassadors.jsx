@@ -4,10 +4,10 @@ import AmbassadorSwiper from "../components/AmbassadorSwiper";
 import Layout from "../components/Layout";
 import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
 import headerAmbassadorsImage from "../assets/images/header_ambassadors.png";
-import cameraIcon from "../assets/images/camera-icon.svg";
 import AmbassadorMap from "../components/AmbassadorMap";
 import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import { MapProvider } from "../hooks/useMapHook";
+import AppNav from "../components/AppNav";
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
@@ -63,13 +63,7 @@ const Ambassadors = () => {
           </MapProvider>
         </RightSideMap>
       </DesktopMap>
-      <ButtonContainer>
-        <Button href="/kaart">Zoek affiches</Button>
-        <Button href="/" secondary>
-          Open AR-Lens
-          <ButtonIcon src={cameraIcon} />
-        </Button>
-      </ButtonContainer>
+      <AppNav activePage="ambassadors" />
     </Layout>
   );
 };
