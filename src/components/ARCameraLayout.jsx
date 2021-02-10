@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -7,10 +8,13 @@ import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import logo from "../assets/images/logo.svg";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
 const ARCameraLayout = ({ children }) => {
+  const ambassadorData = useAmbassadorData();
   const [showInfo, setShowInfo] = useState(
     !sessionStorage.getItem("info-seen")
   );
-  const ambassadorData = useAmbassadorData();
+  const [unlockedModelsData, setUnlockedModelsData] = useState(
+    JSON.parse(localStorage.getItem("unlocked-ambassadors")) || {}
+  );
   const [showMenu, setShowMenu] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
 
@@ -23,13 +27,23 @@ const ARCameraLayout = ({ children }) => {
 
     const getAmbassadorData = (ambassador, model) => {
       let tempModelData;
-      Object.values(data?.[ambassador]?.clickableModels)?.forEach(
-        (modelData) => {
-          if (modelData?.modelClickNames?.includes(model)) {
-            tempModelData = modelData;
+      const clickableModels = data?.[ambassador]?.clickableModels;
+      const tempUnlockedModelsData = unlockedModelsData;
+      Object.keys(clickableModels)?.forEach((key) => {
+        if (clickableModels?.[key]?.modelClickNames?.includes(model)) {
+          tempModelData = clickableModels?.[key];
+          if (!unlockedModelsData?.[ambassador]?.includes(key)) {
+            if (!tempUnlockedModelsData?.[ambassador])
+              tempUnlockedModelsData[ambassador] = [];
+            tempUnlockedModelsData?.[ambassador]?.push(key);
+            localStorage.setItem(
+              "unlocked-ambassadors",
+              JSON.stringify(unlockedModelsData)
+            );
+            setUnlockedModelsData(tempUnlockedModelsData);
           }
         }
-      );
+      });
       return tempModelData;
     };
     const openModal = (eventData) => {

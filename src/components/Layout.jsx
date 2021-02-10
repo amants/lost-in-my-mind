@@ -148,6 +148,7 @@ const LayoutContainer = styled.div`
   width: 100%;
   position: relative;
   padding: 2rem;
+  padding-bottom: 10rem;
 
   @media screen and (min-width: 1100px) {
     padding: 0;
@@ -156,6 +157,10 @@ const LayoutContainer = styled.div`
     position: relative;
     left: 60px;
     max-width: 1200px;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding: 2rem;
   }
 `;
 
@@ -190,7 +195,7 @@ const Menu = styled.a`
 const Logo = styled.img`
   position: absolute;
   left: 1.5rem;
-  z-index: 7;
+  z-index: 11;
   top: 1rem;
   width: 6rem;
 

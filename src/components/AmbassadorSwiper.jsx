@@ -13,7 +13,7 @@ import UnlocksWrapper from "./UnlocksWrapper";
 
 const AmbassadorSwiper = () => {
   const { status, data } = useAmbassadorData();
-
+  const unlockedData = JSON.parse(localStorage.getItem("unlocked-ambassadors"));
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   SwiperCore.use([EffectCoverflow, Navigation]);
@@ -89,6 +89,7 @@ const AmbassadorSwiper = () => {
               </AmbassadorName>
             </div>
             <UnlocksWrapper
+              unlockedData={unlockedData}
               active={activeIndex === i}
               ambassador={ambassador}
             />
@@ -98,6 +99,18 @@ const AmbassadorSwiper = () => {
     </Swiper>
   );
 };
+
+// const ShowUnlocksButton = styled.a`
+//   display: inline-flex;
+//   color: #2e2457;
+//   border: 2px solid #2e2457;
+//   height: 3rem;
+//   width: 50%;
+//   max-width: 40rem;
+//   justify-content: center;
+//   align-items: center;
+//   margin-top: 2rem;
+// `;
 
 const AmbassadorName = styled.p`
   display: none;

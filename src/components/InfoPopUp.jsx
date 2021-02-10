@@ -51,7 +51,7 @@ const Background = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 4;
+  z-index: 11;
   display: flex;
   justify-content: center;
   align-items: center;

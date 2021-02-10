@@ -1,5 +1,6 @@
 {
   "Joost": {
+    "key": "Joost",
     "fullName": "Joost Vandecasteele",
     "thumbnail": "thumbnail_joost.png",
     "nameImage": "nameimage_joost.png",
@@ -14,7 +15,7 @@
       "model": "./models/wereld_joost_aanpassing.gltf",
       "name": "Joost",
       "position": "0 -3 2",
-      "marker": "1"
+      "marker": "6"
     },
     "markers": [
       {
@@ -58,7 +59,7 @@
       "model": "./models/Lize_world_aanpassing.gltf",
       "name": "Lize",
       "position": "0 -3 2",
-      "marker": "6"
+      "marker": "1"
     },
     "thumbnail": "thumbnail_lize.png",
     "nameImage": "nameimage_lize.png",

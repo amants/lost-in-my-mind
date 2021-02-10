@@ -56,7 +56,7 @@ const Ambassadors = () => {
         </RightSideMap>
       </DesktopMap>
       <ButtonContainer>
-        <Button href="/kaart">Zoek interactieve affiches</Button>
+        <Button href="/kaart">Zoek affiches</Button>
         <Button href="/" secondary>
           Open AR-Lens
           <ButtonIcon src={cameraIcon} />
@@ -167,7 +167,17 @@ const RightSideHeading = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 2rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: grid;
+  z-index: 9;
+  padding: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  background-color: white;
+  border-top: 2px solid #f2a655;
 
   @media screen and (min-width: 900px) {
     display: none;
@@ -180,19 +190,19 @@ const ButtonIcon = styled.img`
 
 const Button = styled.a`
   text-decoration: none;
-  width: 80%;
+  width: 100%;
   margin: auto;
-  margin-bottom: 1rem;
-  height: 3rem;
+  height: 5rem;
   font-weight: bold;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
+  z-index: 10;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ secondary }) => (secondary ? "none" : "#f2a655")};
+  background: ${({ secondary }) => (secondary ? "white" : "#f2a655")};
   color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
   border: 2px solid #f2a655;
   border-radius: 5px;
