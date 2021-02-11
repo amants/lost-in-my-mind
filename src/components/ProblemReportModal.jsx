@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { useEffect, useRef, useState } from "react";
-import CircleSpinner from "./CircleSpinner";
+import { useEffect, useRef, useState } from 'react';
+import CircleSpinner from './CircleSpinner';
+import { func, shape } from 'prop-types';
 
 const PopUpComponent = ({ dispatch, marker }) => {
   const [currentProblem, setCurrentProblem] = useState();
@@ -14,13 +15,13 @@ const PopUpComponent = ({ dispatch, marker }) => {
   const sendReport = async () => {
     setLoading(true);
     const markerString = `${marker.id}: lat: ${marker.lat} long: ${marker.long}`;
-    await fetch("https://amantnv.be/api-bap/index.php?do=bug-report", {
-      method: "POST",
+    await fetch('https://amantnv.be/api-bap/index.php?do=bug-report', {
+      method: 'POST',
       body: JSON.stringify({
         error_type: {
-          notPresent: "Er is geen affiche hier",
-          technical: "Technisch probleem",
-          other: "Andere",
+          notPresent: 'Er is geen affiche hier',
+          technical: 'Technisch probleem',
+          other: 'Andere',
         }[currentProblem],
         message: message || undefined,
         marker_string: markerString,
@@ -33,9 +34,9 @@ const PopUpComponent = ({ dispatch, marker }) => {
   const closePopUp = (e) => {
     if (e) e.preventDefault();
 
-    sessionStorage.setItem("info-seen", true);
+    sessionStorage.setItem('info-seen', true);
     popUpRef.current.style.opacity = 0;
-    containerRef.current.style.transform = "scale(0)";
+    containerRef.current.style.transform = 'scale(0)';
     setTimeout(() => {
       dispatch();
     }, 200);
@@ -44,14 +45,12 @@ const PopUpComponent = ({ dispatch, marker }) => {
   useEffect(() => {
     setErrors(() => {
       const errors = {};
-      if (currentProblem && currentProblem !== "notPresent" && !message) {
-        errors.message = "Er moet een beschrijving ingevuld worden";
+      if (currentProblem && currentProblem !== 'notPresent' && !message) {
+        errors.message = 'Er moet een beschrijving ingevuld worden';
       }
       return errors;
     });
   }, [message, currentProblem]);
-
-  console.log(errors);
 
   return (
     <Background ref={popUpRef} onClick={closePopUp}>
@@ -59,20 +58,20 @@ const PopUpComponent = ({ dispatch, marker }) => {
         <Title>Wat is het probleem?</Title>
         <ProblemContainer error={errors.error_type}>
           <ProblemItem
-            selected={currentProblem === "notPresent"}
-            onClick={() => setCurrentProblem("notPresent")}
+            selected={currentProblem === 'notPresent'}
+            onClick={() => setCurrentProblem('notPresent')}
           >
             Affiche niet aanwezig
           </ProblemItem>
           <ProblemItem
-            selected={currentProblem === "technical"}
-            onClick={() => setCurrentProblem("technical")}
+            selected={currentProblem === 'technical'}
+            onClick={() => setCurrentProblem('technical')}
           >
             Technisch probleem
           </ProblemItem>
           <ProblemItem
-            selected={currentProblem === "other"}
-            onClick={() => setCurrentProblem("other")}
+            selected={currentProblem === 'other'}
+            onClick={() => setCurrentProblem('other')}
           >
             Andere
           </ProblemItem>
@@ -86,7 +85,7 @@ const PopUpComponent = ({ dispatch, marker }) => {
             other: <ProblemLabel>Andere</ProblemLabel>,
           }[currentProblem]
         }
-        {currentProblem && currentProblem !== "notPresent" && (
+        {currentProblem && currentProblem !== 'notPresent' && (
           <>
             <TextArea
               placeholder="Wat is het probleem precies?"
@@ -146,8 +145,8 @@ const ProblemItem = styled.button`
   border: 2px solid #342a63 !important;
   outline: none;
   cursor: pointer;
-  color: ${({ selected }) => (selected ? "white" : "#342A63")};
-  background: ${({ selected }) => (selected ? "#342A63" : "none")};
+  color: ${({ selected }) => (selected ? 'white' : '#342A63')};
+  background: ${({ selected }) => (selected ? '#342A63' : 'none')};
   border-radius: 5px;
   transition: all 0.2s ease;
 `;
@@ -214,8 +213,8 @@ const Button = styled.button`
   align-items: center;
   padding: 0.5rem;
   justify-content: center;
-  background: ${({ secondary }) => (secondary ? "none" : "#f2a655")};
-  color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
+  background: ${({ secondary }) => (secondary ? 'none' : '#f2a655')};
+  color: ${({ secondary }) => (secondary ? '#f2a655' : 'white')};
   border: 2px solid #f2a655;
   border-radius: 5px;
   &:active {
@@ -228,5 +227,10 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
+
+PopUpComponent.propTypes = {
+  dispatch: func.isRequired,
+  marker: shape(),
+};
 
 export default PopUpComponent;

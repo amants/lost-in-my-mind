@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import Router from "./config/Router";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import Router from './config/Router';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );

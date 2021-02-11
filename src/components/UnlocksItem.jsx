@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { bool, func, number, shape } from 'prop-types';
+import styled from 'styled-components';
 
 const UnlocksItem = ({ data, colors, unlocked, showElementPopUp, itemKey }) => {
   return (
@@ -50,5 +51,13 @@ const Container = styled.a`
 
   transition: all 0.2s ease;
 `;
+
+UnlocksItem.propTypes = {
+  data: shape(),
+  colors: shape(),
+  unlocked: bool,
+  showElementPopUp: func.isRequired,
+  itemKey: number.isRequired,
+};
 
 export default UnlocksItem;

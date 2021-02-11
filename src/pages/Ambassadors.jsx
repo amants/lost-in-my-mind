@@ -1,13 +1,13 @@
-import { useState } from "react";
-import styled from "styled-components";
-import AmbassadorSwiper from "../components/AmbassadorSwiper";
-import Layout from "../components/Layout";
-import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
-import headerAmbassadorsImage from "../assets/images/header_ambassadors.png";
-import AmbassadorMap from "../components/AmbassadorMap";
-import AmbassadorPopUp from "../components/AmbassadorPopUp";
-import { MapProvider } from "../hooks/useMapHook";
-import AppNav from "../components/AppNav";
+import { useState } from 'react';
+import styled from 'styled-components';
+import AmbassadorSwiper from '../components/AmbassadorSwiper';
+import Layout from '../components/Layout';
+import InfoPopUpAmbassadors from '../components/InfoPopUpAmbassadors';
+import headerAmbassadorsImage from '../assets/images/header_ambassadors.png';
+import AmbassadorMap from '../components/AmbassadorMap';
+import AmbassadorPopUp from '../components/AmbassadorPopUp';
+import { MapProvider } from '../hooks/useMapHook';
+import AppNav from '../components/AppNav';
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();

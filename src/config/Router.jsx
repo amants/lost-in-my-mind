@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import ARCamera from "../pages/ARCamera.jsx";
-import Ambassadors from "../pages/Ambassadors";
-import AmbassadorMap from "../pages/AmbassadorMap";
+import ARCamera from '../pages/ARCamera.jsx';
+import Ambassadors from '../pages/Ambassadors';
+import AmbassadorMap from '../pages/AmbassadorMap';
 
 const GlobalRouter = () => (
   <Router>

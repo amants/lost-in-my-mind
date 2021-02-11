@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import ReactMapGL from "react-map-gl";
-import { Markers } from "./Markers";
-import { useDispatchMap } from "../hooks/useMapHook";
-import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import ReactMapGL from 'react-map-gl';
+import { Markers } from './Markers';
+import { useDispatchMap } from '../hooks/useMapHook';
+import { useAmbassadorData } from '../hooks/useAmbassadorData';
+import { array } from 'prop-types';
 
 const AmbassadorMap = ({ selectedMarkerState }) => {
   const { status, data } = useAmbassadorData();
   const [mapViewPort, setMapViewPort] = useState({
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%',
     longitude: 3.26487,
     latitude: 50.82803,
     zoom: 13.5,
@@ -17,11 +18,11 @@ const AmbassadorMap = ({ selectedMarkerState }) => {
   const mapDispatch = useDispatchMap();
 
   useEffect(() => {
-    if (status !== "FETCHED") return;
+    if (status !== 'FETCHED') return;
     Object.keys(data).forEach((key) => {
       data[key].markers.forEach(({ long, lat }) => {
         mapDispatch({
-          type: "ADD_MARKER",
+          type: 'ADD_MARKER',
           payload: {
             marker: {
               coords: [long, lat],
@@ -52,6 +53,7 @@ const AmbassadorMap = ({ selectedMarkerState }) => {
     </StyledReactMapGL>
   );
 };
+
 const StyledReactMapGL = styled(ReactMapGL)`
   position: absolute;
   left: 0;
@@ -63,5 +65,9 @@ const StyledReactMapGL = styled(ReactMapGL)`
     pointer-events: none !important;
   }
 `;
+
+AmbassadorMap.propTypes = {
+  selectedMarkerState: array.isRequired,
+};
 
 export default AmbassadorMap;

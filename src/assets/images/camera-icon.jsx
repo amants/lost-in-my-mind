@@ -1,3 +1,5 @@
+import { string } from 'prop-types';
+
 const CameraIcon = ({ fill }) => {
   return (
     <svg
@@ -17,6 +19,10 @@ const CameraIcon = ({ fill }) => {
       ></path>
     </svg>
   );
+};
+
+CameraIcon.propTypes = {
+  fill: string.isRequired,
 };
 
 export default CameraIcon;

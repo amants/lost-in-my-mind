@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
+import { node } from 'prop-types';
+import { createContext, useContext, useReducer } from 'react';
 const MapStateContext = createContext();
 const MapDispatchContext = createContext();
 export const MapProvider = ({ children }) => {
@@ -11,36 +12,41 @@ export const MapProvider = ({ children }) => {
     </MapStateContext.Provider>
   );
 };
+
+MapProvider.propTypes = {
+  children: node,
+};
+
 export const useStateMap = () => {
   const context = useContext(MapStateContext);
   if (context === undefined) {
-    throw new Error("place useStateMap within MapProvider");
+    throw new Error('place useStateMap within MapProvider');
   }
   return context;
 };
 export const useDispatchMap = () => {
   const context = useContext(MapDispatchContext);
   if (context === undefined) {
-    throw new Error("place useDispatchMap within MapProvider");
+    throw new Error('place useDispatchMap within MapProvider');
   }
   return context;
 };
 
 export const MapReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_MARKER":
+    case 'ADD_MARKER':
       return {
         ...state,
         markers: [...state.markers, action.payload.marker],
       };
-    case "REMOVE_MARKER":
+    case 'REMOVE_MARKER':
       return {
         ...state,
         markers: [
           ...state.markers.filter(
             (x) =>
               x[0] !== action.payload.marker[0] &&
-              x[1] !== action.payload.marker[1]
+              x[1] !== action.payload.marker[1],
           ),
         ],
       };

@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { useRef } from "react";
+import styled from 'styled-components';
+import { useRef } from 'react';
+import { func, shape } from 'prop-types';
 
 const PopUpComponent = ({ dispatch, ambassadorPopUp }) => {
   const ambassadorPopUpRef = useRef();
@@ -9,7 +10,7 @@ const PopUpComponent = ({ dispatch, ambassadorPopUp }) => {
     if (e) e.preventDefault();
 
     ambassadorPopUpRef.current.style.opacity = 0;
-    containerRef.current.style.transform = "scale(0)";
+    containerRef.current.style.transform = 'scale(0)';
     setTimeout(() => {
       dispatch();
     }, 200);
@@ -106,5 +107,10 @@ const Container = styled.div`
   animation-iteration-count: once;
   transition: all 0.2s ease;
 `;
+
+PopUpComponent.propTypes = {
+  dispatch: func.isRequired,
+  ambassadorPopUp: shape(),
+};
 
 export default PopUpComponent;

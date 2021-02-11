@@ -1,26 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import InfoPopUp from "../components/InfoPopUp";
-import MenuPopUp from "../components/MenuPopUp";
-import AmbassadorPopUp from "../components/AmbassadorPopUp";
-import logo from "../assets/images/logo.svg";
-import { useAmbassadorData } from "../hooks/useAmbassadorData";
-import AppNav from "./AppNav";
+import InfoPopUp from '../components/InfoPopUp';
+import MenuPopUp from '../components/MenuPopUp';
+import AmbassadorPopUp from '../components/AmbassadorPopUp';
+import logo from '../assets/images/logo.svg';
+import { useAmbassadorData } from '../hooks/useAmbassadorData';
+import AppNav from './AppNav';
+import { node } from 'prop-types';
 const ARCameraLayout = ({ children }) => {
   const ambassadorData = useAmbassadorData();
   const [showInfo, setShowInfo] = useState(
-    !sessionStorage.getItem("info-seen")
+    !sessionStorage.getItem('info-seen'),
   );
   const [unlockedModelsData, setUnlockedModelsData] = useState(
-    JSON.parse(localStorage.getItem("unlocked-ambassadors")) || {}
+    JSON.parse(localStorage.getItem('unlocked-ambassadors')) || {},
   );
   const [showMenu, setShowMenu] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
 
   useEffect(() => {
-    if (ambassadorData?.status !== "FETCHED") return;
+    if (ambassadorData?.status !== 'FETCHED') return;
     const { data } = ambassadorData || {};
     const getAmbassadorColors = (ambassador) => {
       return data?.[ambassador]?.colors;
@@ -38,8 +39,8 @@ const ARCameraLayout = ({ children }) => {
               tempUnlockedModelsData[ambassador] = [];
             tempUnlockedModelsData?.[ambassador]?.push(key);
             localStorage.setItem(
-              "unlocked-ambassadors",
-              JSON.stringify(unlockedModelsData)
+              'unlocked-ambassadors',
+              JSON.stringify(unlockedModelsData),
             );
             setUnlockedModelsData(tempUnlockedModelsData);
           }
@@ -49,7 +50,6 @@ const ARCameraLayout = ({ children }) => {
     };
     const openModal = (eventData) => {
       const { ambassador, clickedModel } = eventData?.detail || {};
-      console.log(clickedModel);
       const modalData = getAmbassadorData(ambassador, clickedModel);
       if (!modalData) return;
       setAmbassadorPopup({
@@ -58,13 +58,9 @@ const ARCameraLayout = ({ children }) => {
       });
     };
 
-    document.addEventListener("model-clicked", (eventData) => {
+    document.addEventListener('model-clicked', (eventData) => {
       openModal(eventData);
     });
-
-    return () => {
-      document.removeEventListener("model-clicked", () => {});
-    };
   }, [ambassadorData]);
 
   return (
@@ -136,5 +132,9 @@ const Info = styled.a`
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 `;
+
+ARCameraLayout.propTypes = {
+  children: node.isRequired,
+};
 
 export default ARCameraLayout;

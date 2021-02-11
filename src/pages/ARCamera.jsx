@@ -1,11 +1,11 @@
-import ARCameraLayout from "../components/ARCameraLayout";
+import ARCameraLayout from '../components/ARCameraLayout';
 
-import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import { useAmbassadorData } from '../hooks/useAmbassadorData';
 
 const ARCamera = () => {
   const { data, status } = useAmbassadorData();
 
-  if (status !== "FETCHED") return "Loading";
+  if (status !== 'FETCHED') return 'Loading';
 
   return (
     <ARCameraLayout>

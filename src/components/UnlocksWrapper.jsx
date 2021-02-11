@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import UnlocksItem from "./UnlocksItem";
+import { bool, func, shape } from 'prop-types';
+import styled from 'styled-components';
+import UnlocksItem from './UnlocksItem';
 
 const UnlocksWrapper = ({
   ambassador,
@@ -21,11 +22,6 @@ const UnlocksWrapper = ({
           <h4>Elementen uit de wereld nog niet beschikbaar</h4>
           <p>Scan de affiche en vind de elementen om ze vrij te spelen</p>
         </NoItemsUnlocked>
-      )}
-      {console.log(
-        ambassador?.clickableModels,
-        ambassador?.fullName,
-        unlockedData
       )}
       {Object.keys(ambassador?.clickableModels)?.map((key) => (
         <UnlocksItem
@@ -65,12 +61,19 @@ const Container = styled.div`
   grid-gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
   opacity: ${({ active }) => (active ? 1 : 0)};
-  max-height: ${({ active }) => (active ? "50rem" : 0)};
+  max-height: ${({ active }) => (active ? '50rem' : 0)};
   transition: all 0.2s ease;
 
   @media screen and (min-width: 900px) {
     display: none;
   }
 `;
+
+UnlocksWrapper.propTypes = {
+  ambassador: shape(),
+  active: bool,
+  unlockedData: shape(),
+  setAmbassadorPopup: func.isRequired,
+};
 
 export default UnlocksWrapper;

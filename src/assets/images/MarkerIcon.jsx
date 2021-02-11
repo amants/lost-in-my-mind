@@ -1,3 +1,5 @@
+import { string } from 'prop-types';
+
 const MarkerIcon = ({ fill }) => {
   return (
     <svg
@@ -20,6 +22,10 @@ const MarkerIcon = ({ fill }) => {
       </defs>
     </svg>
   );
+};
+
+MarkerIcon.propTypes = {
+  fill: string.isRequired,
 };
 
 export default MarkerIcon;

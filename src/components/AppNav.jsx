@@ -1,21 +1,22 @@
-import styled from "styled-components";
-import AmbassadorsIcon from "../assets/images/AmbassadorsIcon.jsx";
-import CameraIcon from "../assets/images/camera-icon.jsx";
-import MarkerIcon from "../assets/images/MarkerIcon.jsx";
+import { string } from 'prop-types';
+import styled from 'styled-components';
+import AmbassadorsIcon from '../assets/images/AmbassadorsIcon.jsx';
+import CameraIcon from '../assets/images/camera-icon.jsx';
+import MarkerIcon from '../assets/images/MarkerIcon.jsx';
 
 const AppNav = ({ activePage }) => (
   <Container>
-    <IconButton href="/kaart" active={activePage === "map"}>
-      <MarkerIcon fill={activePage === "map" ? "#f2a655" : "#DDD5C9"} />
+    <IconButton href="/kaart" active={activePage === 'map'}>
+      <MarkerIcon fill={activePage === 'map' ? '#f2a655' : '#DDD5C9'} />
       Zoek affiches
     </IconButton>
-    <IconButton active={activePage === "camera"} href="/">
-      <CameraIcon fill={activePage === "camera" ? "#f2a655" : "#DDD5C9"} />
+    <IconButton active={activePage === 'camera'} href="/">
+      <CameraIcon fill={activePage === 'camera' ? '#f2a655' : '#DDD5C9'} />
       Camera
     </IconButton>
-    <IconButton href="/ambassadeurs" active={activePage === "ambassadors"}>
+    <IconButton href="/ambassadeurs" active={activePage === 'ambassadors'}>
       <AmbassadorsIcon
-        fill={activePage === "ambassadors" ? "#f2a655" : "#DDD5C9"}
+        fill={activePage === 'ambassadors' ? '#f2a655' : '#DDD5C9'}
       />
       Ambassadeurs
     </IconButton>
@@ -56,7 +57,7 @@ const IconButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ active }) => (active ? "#f2a655" : "#DDD5C9")};
+  color: ${({ active }) => (active ? '#f2a655' : '#DDD5C9')};
   border-radius: 5px;
   &:active {
     transform: scale(0.95);
@@ -69,5 +70,9 @@ const IconButton = styled.a`
     object-fit: contain;
   }
 `;
+
+AppNav.propTypes = {
+  activePage: string.isRequired,
+};
 
 export default AppNav;

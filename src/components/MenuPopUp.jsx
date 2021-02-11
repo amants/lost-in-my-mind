@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import { useEffect, useRef } from "react";
+import styled from 'styled-components';
+import { useEffect, useRef } from 'react';
 
-import iconTickets from "../assets/images/icon-tickets.svg";
-import logo from "../assets/images/logo.svg";
+import iconTickets from '../assets/images/icon-tickets.svg';
+import logo from '../assets/images/logo.svg';
+import { func } from 'prop-types';
 const PopUpComponent = ({ dispatch }) => {
   const menuRef = useRef();
 
@@ -113,5 +114,9 @@ const Container = styled.div`
   background-color: #2e2457;
   transition: all 0.2s ease;
 `;
+
+PopUpComponent.propTypes = {
+  dispatch: func.isRequired,
+};
 
 export default PopUpComponent;

@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier", "react-hooks"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "no-prototype-builtins": "off",
+    "no-unused-vars": "warn",
+    "no-unused-expressions": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-key": "warn",
+    "no-undef": "warn",
+    "no-dupe-else-if": "warn",
+    "eqeqeq": ["warn", "smart"],
+    "no-empty-function": "off",
+    "no-lonely-if": "warn",
+    "no-lone-blocks": "warn",
+    "require-await": "error", // Error because it can cause unseen errors not awaiting async code
+    "no-else-return": "warn",
+    "no-unneeded-ternary": "warn",
+    "no-var": "error", // Should never be used, better to show this while typing the code
+    "prefer-const": "warn",
+    "default-case": "warn",
+    "default-case-last": "warn",
+    "no-alert": "warn",
+    "arrow-spacing": "warn",
+    "no-use-before-define": "warn"
+  }
+}
