@@ -37,7 +37,7 @@ const AmbassadorMap = ({ selectedMarkerState }) => {
   return (
     <StyledReactMapGL
       {...mapViewPort}
-      mapboxApiAccessToken="pk.eyJ1IjoicmV4YW5pIiwiYSI6ImNra3ZqbHpjeTF4ZHUybnFudTU1ZjdnNHkifQ.qsSBmCSGqB4moH92sZFTng"
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       mapStyle="mapbox://styles/rexani/ckkxwqtc90yp617ppigqymx4g"
       showUserLocation={true}
       onViewportChange={(e) => {
