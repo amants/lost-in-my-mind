@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import logo from '../assets/images/logo.svg';
-import iconTickets from '../assets/images/icon-tickets.svg';
-import logoKortrijk from '../assets/images/logo-kortrijk.svg';
-import MenuPopUp from '../components/MenuPopUp';
-import { node } from 'prop-types';
+import logo from "../assets/images/logo.svg";
+import iconTickets from "../assets/images/icon-tickets.svg";
+import logoKortrijk from "../assets/images/logo-kortrijk.svg";
+import MenuPopUp from "../components/MenuPopUp";
+import { node } from "prop-types";
 
 const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -132,8 +132,8 @@ const NavLink = styled.li`
       position: absolute;
       background-color: #f2a655;
       bottom: -15px;
-      content: '';
-      display: ${({ active }) => (active ? 'block' : 'none')};
+      content: "";
+      display: ${({ active }) => (active ? "block" : "none")};
       height: 4px;
       left: 15px;
       right: 15px;

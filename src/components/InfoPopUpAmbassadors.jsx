@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { useRef } from 'react';
-import { func } from 'prop-types';
+import { useRef } from "react";
+import { func } from "prop-types";
 
 const PopUpComponent = ({ dispatch }) => {
   const popUpRef = useRef();
@@ -9,9 +9,9 @@ const PopUpComponent = ({ dispatch }) => {
   const closePopUp = (e) => {
     if (e) e.preventDefault();
 
-    sessionStorage.setItem('info-seen', true);
+    sessionStorage.setItem("info-seen", true);
     popUpRef.current.style.opacity = 0;
-    containerRef.current.style.transform = 'scale(0)';
+    containerRef.current.style.transform = "scale(0)";
     setTimeout(() => {
       dispatch();
     }, 200);
@@ -103,8 +103,8 @@ const Button = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ secondary }) => (secondary ? 'none' : '#f2a655')};
-  color: ${({ secondary }) => (secondary ? '#f2a655' : 'white')};
+  background: ${({ secondary }) => (secondary ? "none" : "#f2a655")};
+  color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
   border: 2px solid #f2a655;
   border-radius: 5px;
   &:active {

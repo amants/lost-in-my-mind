@@ -1,6 +1,6 @@
-import { bool, func, shape } from 'prop-types';
-import styled from 'styled-components';
-import UnlocksItem from './UnlocksItem';
+import { bool, func, shape } from "prop-types";
+import styled from "styled-components";
+import UnlocksItem from "./UnlocksItem";
 
 const UnlocksWrapper = ({
   ambassador,
@@ -61,7 +61,7 @@ const Container = styled.div`
   grid-gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
   opacity: ${({ active }) => (active ? 1 : 0)};
-  max-height: ${({ active }) => (active ? '50rem' : 0)};
+  max-height: ${({ active }) => (active ? "50rem" : 0)};
   transition: all 0.2s ease;
 
   @media screen and (min-width: 900px) {

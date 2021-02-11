@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
     0% {
@@ -36,10 +36,10 @@ const Wrapper = styled.div`
 CircleSpinner.defaultProps = {
   loading: true,
   size: 30,
-  color: '#fff',
-  sizeUnit: 'px',
-  className: '',
-  position: 'absolute',
+  color: "#fff",
+  sizeUnit: "px",
+  className: "",
+  position: "absolute",
 };
 
 CircleSpinner.propTypes = {

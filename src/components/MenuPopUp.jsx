@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { useEffect, useRef } from 'react';
+import styled from "styled-components";
+import { useEffect, useRef } from "react";
 
-import iconTickets from '../assets/images/icon-tickets.svg';
-import logo from '../assets/images/logo.svg';
-import { func } from 'prop-types';
+import iconTickets from "../assets/images/icon-tickets.svg";
+import logo from "../assets/images/logo.svg";
+import { func } from "prop-types";
 const PopUpComponent = ({ dispatch }) => {
   const menuRef = useRef();
 

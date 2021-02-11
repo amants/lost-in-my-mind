@@ -1,11 +1,11 @@
-import ARCameraLayout from '../components/ARCameraLayout';
+import ARCameraLayout from "../components/ARCameraLayout";
 
-import { useAmbassadorData } from '../hooks/useAmbassadorData';
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
 const ARCamera = () => {
   const { data, status } = useAmbassadorData();
 
-  if (status !== 'FETCHED') return 'Loading';
+  if (status !== "FETCHED") return "Loading";
 
   return (
     <ARCameraLayout>
@@ -30,6 +30,7 @@ const ARCamera = () => {
                 id={data[key]?.markerData?.dataId}
                 gltf-model={data[key]?.markerData?.model}
                 scale="0.01 0.01 0.01"
+                look-at="[camera]"
                 data-ambassador={data[key]?.markerData?.name}
                 position="-100 -100 -100"
                 rotation="-90 0 0"

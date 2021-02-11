@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCoverflow, Navigation } from 'swiper';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectCoverflow, Navigation } from "swiper";
 
-import leftArrow from '../assets/images/arrow_left.png';
-import rightArrow from '../assets/images/arrow_right.png';
-import swiperBG from '../assets/images/bg_swiper.png';
-import 'swiper/swiper.scss';
-import 'swiper/components/effect-coverflow/effect-coverflow.scss';
-import { useAmbassadorData } from '../hooks/useAmbassadorData';
-import UnlocksWrapper from './UnlocksWrapper';
-import { func } from 'prop-types';
+import leftArrow from "../assets/images/arrow_left.png";
+import rightArrow from "../assets/images/arrow_right.png";
+import swiperBG from "../assets/images/bg_swiper.png";
+import "swiper/swiper.scss";
+import "swiper/components/effect-coverflow/effect-coverflow.scss";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import UnlocksWrapper from "./UnlocksWrapper";
+import { func } from "prop-types";
 
 const AmbassadorSwiper = ({ setAmbassadorPopup }) => {
   const { status, data } = useAmbassadorData();
-  const unlockedData = JSON.parse(localStorage.getItem('unlocked-ambassadors'));
+  const unlockedData = JSON.parse(localStorage.getItem("unlocked-ambassadors"));
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   SwiperCore.use([EffectCoverflow, Navigation]);
 
   useEffect(() => {
-    if (status === 'FETCHED') setLoading(false);
+    if (status === "FETCHED") setLoading(false);
   }, [status]);
 
   const getOpacity = (currentIndex, index) => {
@@ -30,7 +30,7 @@ const AmbassadorSwiper = ({ setAmbassadorPopup }) => {
     return MAX - difference * 20;
   };
 
-  if (loading) return 'Loading';
+  if (loading) return "Loading";
 
   return (
     <Swiper
@@ -38,8 +38,8 @@ const AmbassadorSwiper = ({ setAmbassadorPopup }) => {
       spaceBetween={50}
       slidesPerView={1}
       navigation={{
-        nextEl: '.next_slider',
-        prevEl: '.prev_slider',
+        nextEl: ".next_slider",
+        prevEl: ".prev_slider",
       }}
       initialSlide={0}
       centeredSlides
@@ -191,8 +191,10 @@ const Slide = styled.div`
     outline: none;
     border: none;
     opacity: ${({ active }) => (active ? 1 : 0)};
+    visibility: ${({ active }) => (active ? "visible" : "hidden")};
+    ${({ active }) => active && "pointer-events: none;"};
     transition: opacity 0.2s ease;
-    content: '';
+    content: "";
     position: absolute;
     z-index: 4;
     top: 0;

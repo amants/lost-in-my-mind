@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "lodash": "^4.17.20",
     "mapbox-gl": "^2.1.1",
     "prop-types": "^15.7.2",
@@ -15,22 +12,22 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "sass": "^1.32.6",
     "styled-components": "^5.2.1",
     "swiper": "^6.4.11",
-    "web-vitals": "^1.0.1",
     "worker-loader": "^3.0.7"
   },
   "devDependencies": {
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1",
-    "stylelint-config-standard": "^20.0.0"
+    "sass": "^1.32.6",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,9 +43,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 5 chrome version",
+      "last 5 firefox version",
+      "last 5 safari version"
     ]
   }
 }

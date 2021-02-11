@@ -1,9 +1,9 @@
-import React from 'react';
-import { Marker } from 'react-map-gl';
-import { useStateMap } from '../hooks/useMapHook';
-import styled from 'styled-components';
-import { useAmbassadorData } from '../hooks/useAmbassadorData';
-import { array } from 'prop-types';
+import React from "react";
+import { Marker } from "react-map-gl";
+import { useStateMap } from "../hooks/useMapHook";
+import styled from "styled-components";
+import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import { array } from "prop-types";
 
 export const Markers = ({ selectedMarkerState }) => {
   const { data, status } = useAmbassadorData();
@@ -15,7 +15,7 @@ export const Markers = ({ selectedMarkerState }) => {
   };
   const { markers } = useStateMap();
 
-  if (status !== 'FETCHED') return 'Loading';
+  if (status !== "FETCHED") return "Loading";
   return (
     <>
       {markers?.map((marker, index) => (
