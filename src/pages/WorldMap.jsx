@@ -1,18 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Layout from "../components/MapLayout";
-import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
 import ProblemReportModal from "../components/ProblemReportModal";
 import AmbassadorMap from "../components/AmbassadorMap";
 import { MapProvider } from "../hooks/useMapHook";
 import AppNav from "../components/AppNav";
 const Ambassadors = () => {
-  const [showInfo, setShowInfo] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState();
   const [showProblemModal, setShowProblemModal] = useState();
   return (
     <Layout selectedMarker={selectedMarker}>
-      {showInfo && <InfoPopUpAmbassadors dispatch={() => setShowInfo(false)} />}
       {showProblemModal && (
         <ProblemReportModal
           marker={selectedMarker}
@@ -116,6 +113,19 @@ const Container = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
+
+  @media screen and (min-width: 1100px) {
+    position: static;
+    height: 50rem;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+  }
 `;
 
 export default Ambassadors;

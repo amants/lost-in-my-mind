@@ -5,6 +5,7 @@
   "dependencies": {
     "lodash": "^4.17.20",
     "mapbox-gl": "^2.1.1",
+    "mobile-device-detect": "^0.4.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

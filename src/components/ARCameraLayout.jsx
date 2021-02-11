@@ -100,6 +100,7 @@ const Menu = styled.a`
   font-weight: 700;
   text-transform: uppercase;
   color: #fff2ea;
+  cursor: pointer;
   padding: 8px 15px 10px;
   border-radius: 4px;
   font-size: 1.475rem;
@@ -120,6 +121,7 @@ const Info = styled.a`
   position: fixed;
   left: 2rem;
   bottom: 8rem;
+  cursor: pointer;
   z-index: 2;
   position: absolute;
   background-color: #f2a655;

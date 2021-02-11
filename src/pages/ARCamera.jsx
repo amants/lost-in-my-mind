@@ -1,9 +1,15 @@
 import ARCameraLayout from "../components/ARCameraLayout";
 
+import { isMobile } from "mobile-device-detect";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
+import { useEffect } from "react";
 
 const ARCamera = () => {
   const { data, status } = useAmbassadorData();
+
+  useEffect(() => {
+    if (!isMobile) window.location.href = "/ambassadeurs";
+  }, []);
 
   if (status !== "FETCHED") return "Loading";
 

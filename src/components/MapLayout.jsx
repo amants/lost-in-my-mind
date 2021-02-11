@@ -11,8 +11,8 @@ const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <LayoutContainer>
-      {showMenu && <MenuPopUp dispatch={() => setShowMenu(false)} />}
       <Logo src={logo} alt="Memento logo"></Logo>
+      {showMenu && <MenuPopUp dispatch={() => setShowMenu(false)} />}
       <NavBar>
         <NavLinks>
           <NavLink>
@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         </Actions>
       </NavBar>
       <Menu onClick={() => setShowMenu(true)}>Menu</Menu>
-      <Container>{children}</Container>
+      {children}
     </LayoutContainer>
   );
 };
@@ -148,7 +148,6 @@ const NavLink = styled.li`
 const LayoutContainer = styled.div`
   width: 100%;
   position: absolute;
-  padding: 2rem;
   top: 0;
   bottom: 0;
   left: 0;
@@ -164,28 +163,6 @@ const LayoutContainer = styled.div`
   }
 `;
 
-const Container = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 0;
-
-  @media screen and (min-width: 1100px) {
-    position: static;
-    height: 50rem;
-    margin-top: 5rem;
-    border-radius: 2rem;
-    overflow: hidden;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-  }
-`;
-
 const Menu = styled.a`
   position: fixed;
   right: 2rem;
@@ -198,7 +175,7 @@ const Menu = styled.a`
   border-radius: 4px;
   font-size: 1.475rem;
   cursor: pointer;
-  z-index: 2;
+  z-index: 1;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 

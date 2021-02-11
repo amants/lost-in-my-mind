@@ -164,9 +164,10 @@ const ProblemContainer = styled.div`
   grid-gap: 1rem;
 `;
 const ProblemItem = styled.button`
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 2px solid #342a63 !important;
   outline: none;
+  font-size: 1.6rem;
   cursor: pointer;
   color: ${({ selected }) => (selected ? "white" : "#342A63")};
   background: ${({ selected }) => (selected ? "#342A63" : "none")};
@@ -185,7 +186,7 @@ const Background = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 11;
+  z-index: 40;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,6 +206,7 @@ const Container = styled.div`
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   width: 90%;
+  z-index: 40;
   animation-name: scale-in;
   animation-duration: 0.2s;
   animation-iteration-count: once;
