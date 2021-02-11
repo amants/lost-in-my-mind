@@ -4,9 +4,12 @@ import { useStateMap } from "../hooks/useMapHook";
 import styled from "styled-components";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
-export const Markers = () => {
+export const Markers = ({ selectedMarkerState }) => {
   const { data, status } = useAmbassadorData();
-  const getMarkerImage = (ambassador_name) => {
+  const [selectedMarker, setSelecterMarker] = selectedMarkerState;
+
+  const getMarkerImage = (ambassador_name, selected) => {
+    if (selected) return data[ambassador_name]?.selectedMarkerImage;
     return data[ambassador_name]?.markerImage;
   };
   const { markers } = useStateMap();
@@ -23,7 +26,19 @@ export const Markers = () => {
           longitude={marker.coords[0]}
         >
           <MarkerImage
-            src={`./assets/images/${getMarkerImage(marker.name)}`}
+            onClick={() => {
+              if (selectedMarker?.id === `${marker.name}_${index}`)
+                return setSelecterMarker();
+              setSelecterMarker({
+                id: `${marker.name}_${index}`,
+                lat: marker.coords[1],
+                long: marker.coords[0],
+              });
+            }}
+            src={`./assets/images/${getMarkerImage(
+              marker.name,
+              selectedMarker?.id === `${marker.name}_${index}`
+            )}`}
             alt="Marker_image"
           />
         </Marker>

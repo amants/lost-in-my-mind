@@ -4,10 +4,10 @@ import AmbassadorSwiper from "../components/AmbassadorSwiper";
 import Layout from "../components/Layout";
 import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
 import headerAmbassadorsImage from "../assets/images/header_ambassadors.png";
-import cameraIcon from "../assets/images/camera-icon.svg";
 import AmbassadorMap from "../components/AmbassadorMap";
 import AmbassadorPopUp from "../components/AmbassadorPopUp";
 import { MapProvider } from "../hooks/useMapHook";
+import AppNav from "../components/AppNav";
 const Ambassadors = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [ambassadorPopUp, setAmbassadorPopup] = useState();
@@ -45,31 +45,25 @@ const Ambassadors = () => {
       <AmbassadorSwiper setAmbassadorPopup={setAmbassadorPopup} />
       <DesktopMap>
         <LeftSideMap>
-          <h2>Verdwaal in mijn Gedachten</h2>
+          <h2>Verdwaal in de Binnenstad</h2>
           <p>
-            Leer <span>onze 5 ambassadeurs</span> op een unieke manier kennen.
-            Neem een kijkje in hun gedachten en ga op zoek naar wie de auteur is
-            en hoe hij of zij denkt.
+            De affiches van de ambassadeurs zijn te vinden op de langgerekte
+            interactieve woordroute. Hiernaast zijn de exacte locaties
+            weergegeven.
           </p>
           <p>
-            In Kortrijk zijn 5 interactieve affiches te vinden gekoppeld aan een
-            ambassadeur. Door de QR-code te scannen krijg je toegang tot hun
-            interactieve AR-wereld.
+            Problemen met het vinden van de affiche? Open deze pagina tijdens
+            jouw zoektocht met een mobiel apparaat en laat je helpen door de
+            routebeschrijving.
           </p>
         </LeftSideMap>
         <RightSideMap>
           <MapProvider>
-            <AmbassadorMap />
+            <AmbassadorMap selectedMarkerState={[undefined, () => {}]} />
           </MapProvider>
         </RightSideMap>
       </DesktopMap>
-      <ButtonContainer>
-        <Button href="/kaart">Zoek affiches</Button>
-        <Button href="/" secondary>
-          Open AR-Lens
-          <ButtonIcon src={cameraIcon} />
-        </Button>
-      </ButtonContainer>
+      <AppNav activePage="ambassadors" />
     </Layout>
   );
 };
@@ -172,52 +166,6 @@ const RightSideHeading = styled.div`
       color: #f2a655;
     }
   }
-`;
-
-const ButtonContainer = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: grid;
-  z-index: 9;
-  padding: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-  background-color: white;
-  border-top: 2px solid #f2a655;
-
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
-`;
-
-const ButtonIcon = styled.img`
-  margin-left: 1rem;
-`;
-
-const Button = styled.a`
-  text-decoration: none;
-  width: 100%;
-  margin: auto;
-  height: 5rem;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  z-index: 10;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${({ secondary }) => (secondary ? "white" : "#f2a655")};
-  color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
-  border: 2px solid #f2a655;
-  border-radius: 5px;
-  &:active {
-    transform: scale(0.95);
-  }
-  transition: all 0.2s ease;
 `;
 
 const Heading = styled.div`

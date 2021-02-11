@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const PopUpComponent = ({ dispatch }) => {
+  const [currentProblem, setCurrentProblem] = useState();
   const popUpRef = useRef();
   const containerRef = useRef();
   const closePopUp = (e) => {
@@ -19,23 +20,33 @@ const PopUpComponent = ({ dispatch }) => {
   return (
     <Background ref={popUpRef} onClick={closePopUp}>
       <Container ref={containerRef} onClick={(e) => e.stopPropagation()}>
-        <Title>Verdwaal in mijn gedachten</Title>
-        <Alinea>
-          Leer onze 5 ambassadeurs op een unieke manier kennen. Neem een kijkje
-          in hun gedachten en ga op zoek naar leuke weetjes.
-        </Alinea>
-        <Alinea>
-          In Kortrijk zijn 5 interactieve affiches te vinden, gekoppeld aan een
-          ambassadeur. Door de QR-code te scannen krijg je toegang tot een
-          interactieve AR-wereld.
-        </Alinea>
+        <Title>Wat is het probleem?</Title>
+        <ProblemContainer>
+          <ProblemItem
+            selected={currentProblem === "notPresent"}
+            onClick={() => setCurrentProblem("notPresent")}
+          ></ProblemItem>
+        </ProblemContainer>
+        {
+          {
+            notPresent: <p>notPresent</p>,
+            technical: <p>technical</p>,
+            other: <p>other</p>,
+          }[currentProblem]
+        }
         <ButtonContainer>
-          <Button onClick={closePopUp}>Sluiten</Button>
+          <Button onClick={closePopUp}>Verstuur</Button>
+          <Button onClick={closePopUp} secondary>
+            Sluiten
+          </Button>
         </ButtonContainer>
       </Container>
     </Background>
   );
 };
+
+const ProblemContainer = styled.div``;
+const ProblemItem = styled.button``;
 
 const ButtonContainer = styled.div`
   margin-top: 2rem;
@@ -77,13 +88,6 @@ const Container = styled.div`
 const Title = styled.h2`
   font-weight: 700;
   font-size: 20px;
-  line-height: 140%;
-  color: #2e2457;
-`;
-
-const Alinea = styled.p`
-  font-weight: normal;
-  font-size: 16px;
   line-height: 140%;
   color: #2e2457;
 `;

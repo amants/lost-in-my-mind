@@ -59,6 +59,31 @@
     <script>
       let mixers = [];
       var clock = new THREE.Clock();
+      const modelsShown = {};
+
+      function markerFoundFunction(e, self, model) {
+        self.markerFound = true;
+        model.setAttribute("position", { x: 0, y: 0, z: 0 });
+        modelsShown[model.getAttribute("data-ambassador")] = true;
+        const modelItem = model.getObject3D("mesh");
+        const animation = modelItem.animations[0];
+        var mixer = new THREE.AnimationMixer(modelItem);
+        var action = mixer.clipAction(animation);
+        action.setLoop(THREE.LoopOnce);
+        action.clampWhenFinished = true;
+        action.play();
+        mixers.push(mixer);
+      }
+
+      function markerLostFunction(e, self, model) {
+        model.setAttribute("position", { x: 1000, y: 2000, z: 3000 });
+        self.evtDetail.markerFound = false;
+        // your code here}
+        mixers.forEach((mixer, i) => {
+          delete mixers[i];
+        });
+      }
+
       AFRAME.registerComponent("markercomp", {
         init: function () {
           let el = this.el;
@@ -66,22 +91,13 @@
           const model = document.querySelector(
             `#${this.el.getAttribute("data-id")}`
           );
-          el.addEventListener("markerFound", (e) => {
-            const modelItem = model.getObject3D("mesh");
-            const animation = modelItem.animations[0];
-            var mixer = new THREE.AnimationMixer(modelItem);
-            var action = mixer.clipAction(animation);
-            action.setLoop(THREE.LoopOnce);
-            action.clampWhenFinished = true;
-            action.play();
-            mixers.push(mixer);
-          });
-          el.addEventListener("markerLost", (e) => {
-            // your code here}
-            mixers.forEach((mixer, i) => {
-              delete mixers[i];
-            });
-          });
+          self.evtDetail.markerFound = false;
+          el.addEventListener("markerFound", (e) =>
+            markerFoundFunction(e, self, model)
+          );
+          el.addEventListener("markerLost", (e) =>
+            markerLostFunction(e, self, model)
+          );
         },
         tick: function () {
           if (mixers.length > 0) {
@@ -103,6 +119,7 @@
           let self = this;
           self.trees = [];
           this.mouseOverObject = null;
+          self.mouseOver;
           el.addEventListener("model-loaded", (e) => {
             let tree3D = el.getObject3D("mesh");
             if (!tree3D) {
@@ -133,7 +150,7 @@
           });
 
           el.addEventListener("click", function () {
-            if (!self.mouseOverObject) return;
+            if (!self.mouseOver || !self.mouseOverObject) return;
             const event = new CustomEvent("model-clicked", {
               detail: {
                 ambassador: el.getAttribute("data-ambassador"),
@@ -142,7 +159,8 @@
             });
             document.dispatchEvent(event);
           });
-          el.addEventListener("touchstart", function () {
+          el.addEventListener("touchend", function () {
+            if (!self.mouseOver || !self.mouseOverObject) return;
             const event = new CustomEvent("model-clicked", {
               detail: {
                 ambassador: el.getAttribute("data-ambassador"),

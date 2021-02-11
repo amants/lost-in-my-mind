@@ -5,7 +5,7 @@ import { Markers } from "./Markers";
 import { useDispatchMap } from "../hooks/useMapHook";
 import { useAmbassadorData } from "../hooks/useAmbassadorData";
 
-const AmbassadorMap = () => {
+const AmbassadorMap = ({ selectedMarkerState }) => {
   const { status, data } = useAmbassadorData();
   const [mapViewPort, setMapViewPort] = useState({
     height: "100%",
@@ -48,7 +48,7 @@ const AmbassadorMap = () => {
         }));
       }}
     >
-      <Markers />
+      <Markers selectedMarkerState={selectedMarkerState} />
     </StyledReactMapGL>
   );
 };
