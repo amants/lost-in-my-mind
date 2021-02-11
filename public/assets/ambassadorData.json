@@ -16,7 +16,7 @@
       "model": "./models/wereld_joost_aanpassing.gltf",
       "name": "Joost",
       "position": "0 0 0",
-      "marker": "6"
+      "marker": "1"
     },
     "markers": [
       {
@@ -54,13 +54,14 @@
     }
   },
   "Lize": {
+    "key": "Lize",
     "fullName": "Lize Spit",
     "markerData": {
       "dataId": "markerLize",
-      "model": "./models/Lize_world_aanpassing.gltf",
+      "model": "./models/Lize.gltf",
       "name": "Lize",
       "position": "0 -3 2",
-      "marker": "1"
+      "marker": "2"
     },
     "thumbnail": "thumbnail_lize.png",
     "nameImage": "nameimage_lize.png",
@@ -81,49 +82,59 @@
       "berg": {
         "title": "Berg",
         "content": "Ik ben onzeker over wat ik aak en denk altijd meteen als ik een verzoek krijg van een organisatie: dit ga ik niet kunnen. Alsof ik voor een hoge berg sta zonder ervaring. Daardoor heb ik de neiging om op veel verzoeken 'nee' te zeggen. Ik probeer echter toch wel eens 'ja' te zeggen, en dan toch die berg te beklimmen.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "berg_kader-Mat14",
+          "berg_top",
+          "berg_bottom",
+          "berg_kader-Mat9"
+        ],
         "image": "lize-berg.png"
       },
       "camera": {
         "title": "Camera",
         "content": "Ik ben opgeleid als scenarist en daardoor ook gevormd in hoe ik boeken schrijf. Ik bouw een boek op uit scenes, en voor mij dient mijn hoofdpersonage als een soort camera die alles registreert en dit aan de lezer doorgeeft. Ik hoop in een volgend boek eens gebruik te maken van een alwetende verteller, zodat ik op een andere manier het verhaal moet 'capteren'.",
-        "modelClickNames": [],
+        "modelClickNames": ["camera", "moviecamera_outline"],
         "image": "lize-camera.png"
       },
       "kaartenhuis": {
         "title": "Kaartenhuis",
         "content": "Ik bouw mijn boeken en verhalen op als een kaartenhuisje, voeg langzaam laag voor laag toe. Elke speelkaart is nodig, bevat informatie voor het verhaal. Het is een delicate manier van bouwen, het verhaal valt uit elkaar als je stukken wegneemt.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "kaartenhuis_outline",
+          "kaartenhuis_kaarten-Mat13",
+          "kaartenhuis_kaarten-Mat"
+        ],
         "image": "lize-kaartenhuis.png"
       },
       "woestijn": {
         "title": "Woestijn",
         "content": "Als ik schrijf, zonder ik me emotioneel af van anderen en maak ik het mezelf ook vaak moeilijk qua manier van werken. Ik put mezelf vaak uit, omdat ik niet wil ophouden met werken, ook al voelt het als ploeteren door een droge woestijn. Je weet nooit zeker of wat je schrijft goed genoeg is, maar als je fysiek uitgeput bent of je jezelf helemaal leeg schrijft, dan is dat wel de feedback die je krijgt dat je weet dat je alles hebt gegeven wat je in je had.",
-        "modelClickNames": [],
+        "modelClickNames": ["Plane", "woestijn_sign"],
         "image": "lize-woestijn.png"
       },
       "puzzelstukjes": {
         "title": "Puzzelstukjes",
         "content": "Schrijven is een verhaal vertellen door voor de lezer nauwkeurig de juiste puzzelstukjes één voor één in elkaar te klikken",
-        "modelClickNames": [],
+        "modelClickNames": ["puzzel_outline", "Cube14"],
         "image": "lize-puzzel.png"
       },
       "penseel": {
         "title": "Penseel met 1 haartje",
         "content": "Ik ben enorm perfectionistisch en werk erg gedetailleerd. Soms verlies ik me daarin, en verlies ik het werkplezier uit het oog. Tegelijk typeert die zorgvuldige manier van schrijven ook mijn schrijverschap.",
-        "modelClickNames": [],
+        "modelClickNames": ["Cube11", "Cylinder", "pennseel_outline"],
         "image": "lize-penseel.png"
       }
     }
   },
   "Stefan": {
+    "key": "Stefan",
     "fullName": "Stefan Hertmans",
     "markerData": {
       "dataId": "markerStefan",
-      "model": "./models/Lize.gltf",
       "name": "Stefan",
+      "model": "./models/Stefan.gltf",
       "position": "0 0 0",
-      "marker": "1",
+      "marker": "3",
       "markerName": "marker-stefan"
     },
     "thumbnail": "thumbnail_stefan.png",
@@ -131,8 +142,8 @@
     "markerImage": "marker-stefan.png",
     "selectedMarkerImage": "selected-marker-stefan.png",
     "colors": {
-      "background": "#B5E8E8",
-      "titleColor": "#16627A",
+      "background": "#CCDADF",
+      "titleColor": "#3D2112",
       "textColor": "black"
     },
     "markers": [
@@ -142,27 +153,67 @@
       }
     ],
     "clickableModels": {
-      "Knuppel": {
-        "title": "",
-        "content": "",
-        "modelClickNames": [],
-        "image": ""
+      "muziekinstallatie": {
+        "title": "Muziekinstallatie",
+        "content": "Een goede muziekinstallatie, omdat ik niet zonder muziek kan leven.",
+        "modelClickNames": [
+          "muziekinstallatie",
+          "Cube23",
+          "Sphere2",
+          "Sphere1",
+          "Sphere",
+          "Cylinder1",
+          "Cylinder2",
+          "Cylinder",
+          "muziekinstalatie_outline"
+        ],
+        "image": "stefan-muziek.png"
       },
-      "USB": {
-        "title": "",
-        "content": "",
-        "modelClickNames": [],
-        "image": ""
+      "frankrijk": {
+        "title": "Frankrijk",
+        "content": "Ik ben bijzonder gehecht aan een nogal verlaten streek in het zuiden van Frankrijk; alle kleuren zijn daar heviger, ook in de natuur.",
+        "modelClickNames": [
+          "Extrude",
+          "france-Mat1",
+          "france-Mat2",
+          "france-mat"
+        ],
+        "image": "stefan-frankrijk.png"
       },
-      "appartement": {
-        "title": "",
-        "content": "",
-        "modelClickNames": [],
-        "image": ""
+      "boekenkast": {
+        "title": "Boekenkast",
+        "content": "ik heb een bibliotheek binnen handbereik nodig, om te kunnen lezen en denken.",
+        "modelClickNames": [
+          "Cube38",
+          "boekenkast_outline",
+          "Cube",
+          "Cube2",
+          "Cube3",
+          "Cube8",
+          "Cube10",
+          "Cube12",
+          "Cube14",
+          "Cube21",
+          "Cube35",
+          "Cube36",
+          "Cube38",
+          "Cube39",
+          "Cube40",
+          "Cube41",
+          "Cube42",
+          "Cube43",
+          "Cube44",
+          "Cube45",
+          "Cube46",
+          "Cube47",
+          "Cube49"
+        ],
+        "image": "stefan-boekenkast.png"
       }
     }
   },
   "Dalilla": {
+    "key": "Dalilla",
     "fullName": "Dalilla Hermans",
     "thumbnail": "thumbnail_dalilla.png",
     "nameImage": "nameimage_dalilla.png",
@@ -175,10 +226,10 @@
     },
     "markerData": {
       "dataId": "markerDalilla",
-      "model": "./models/Dalilla_world_aanpassing.gltf",
+      "model": "./models/Dalilla.gltf",
       "name": "Dalilla",
       "position": "0 -3 2",
-      "marker": "1"
+      "marker": "4"
     },
     "markers": [
       {
@@ -190,24 +241,37 @@
       "parfum": {
         "title": "Parfum",
         "content": "Geuren staan voor liefde en warme herinneringen. De geur van mijn kinderen hun hoofdje bijvoorbeeld. Of de geur van mijn mama haar woonkamer.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "Sweep",
+          "parfum_glass",
+          "parfum_top",
+          "parfum_outline"
+        ],
         "image": "dalilla-parfum.png"
       },
       "plant": {
         "title": "Plant",
         "content": "Die staat voor rust, peace of mind en een 'leeg hoofd'. Ik schrijf vaak buiten en wordt helder in de natuur.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "Cylinder1",
+          "Extrude",
+          "plant_outline",
+          "Extrude1",
+          "Sweep4",
+          "Sweep5"
+        ],
         "image": "dalilla-plant.png"
       },
       "fotoalbum": {
         "title": "Fotoalbum",
         "content": "Ik schrijf altijd over mensen. Mensen inspireren me, in al hun verscheidenheid. Menselijk gedrag bestuderen is mijn favoriete vorm van research. Een boek vol portretten dus.",
-        "modelClickNames": [],
+        "modelClickNames": ["Tube", "Cylinder", "fotoalbum_outline"],
         "image": "dalilla-fotoalbum.png"
       }
     }
   },
   "Anneleen": {
+    "key": "Anneleen",
     "fullName": "Anneleen Van Offel",
     "thumbnail": "thumbnail_anneleen.png",
     "nameImage": "nameimage_anneleen.png",
@@ -220,10 +284,10 @@
     },
     "markerData": {
       "dataId": "markerAnneleen",
-      "model": "./models/anneleen_world_aanpassing.gltf",
+      "model": "./models/Anneleen.gltf",
       "name": "Anneleen",
       "position": "0 -3 2",
-      "marker": "4"
+      "marker": "5"
     },
     "markers": [
       {
@@ -235,19 +299,31 @@
       "vuurpook": {
         "title": "Vuurpook",
         "content": "Anneleen laat haar creatief vuur aanwakkeren door beeldende kunst. Voornamelijk uit het werk van Berline de Bruyckere.",
-        "modelClickNames": [],
+        "modelClickNames": ["vuurpook"],
         "image": "anneleen-vuurpook.png"
       },
       "wereldkaart": {
         "title": "Wereldkaart",
         "content": "Voor anneleens boek 'Hier is alles veilig' heeft ze er 4 researchreizen op ziten.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "wereldkaart",
+          "wereldkaart_outline",
+          "wereldkaart_continenten",
+          "wereldkaart-Mat4"
+        ],
         "image": "anneleen-wereldkaart.png"
       },
       "koekoeksklok": {
         "title": "Koekoeksklok",
         "content": "Anneleens gedachten zijn altijd druk en voortdurend aan het pingpongen met ideeën.",
-        "modelClickNames": [],
+        "modelClickNames": [
+          "klok_plaat",
+          "klok_button-wood",
+          "klok_slinger_midden",
+          "klok_slinger_rechts",
+          "klok_outline",
+          "klok_slinger_links"
+        ],
         "image": "anneleen-koekoeksklok.png"
       }
     }

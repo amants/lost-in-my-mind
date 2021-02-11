@@ -59,7 +59,7 @@ const Ambassadors = () => {
         </LeftSideMap>
         <RightSideMap>
           <MapProvider>
-            <AmbassadorMap />
+            <AmbassadorMap selectedMarkerState={[undefined, () => {}]} />
           </MapProvider>
         </RightSideMap>
       </DesktopMap>

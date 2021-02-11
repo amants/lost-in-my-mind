@@ -22,6 +22,11 @@ const UnlocksWrapper = ({
           <p>Scan de affiche en vind de elementen om ze vrij te spelen</p>
         </NoItemsUnlocked>
       )}
+      {console.log(
+        ambassador?.clickableModels,
+        ambassador?.fullName,
+        unlockedData
+      )}
       {Object.keys(ambassador?.clickableModels)?.map((key) => (
         <UnlocksItem
           data={ambassador?.clickableModels?.[key]}
