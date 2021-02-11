@@ -49,4 +49,5 @@ export const Markers = ({ selectedMarkerState }) => {
 
 const MarkerImage = styled.img`
   width: 6rem;
+  cursor: pointer;
 `;

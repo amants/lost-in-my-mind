@@ -14,7 +14,10 @@ const Ambassadors = () => {
     <Layout selectedMarker={selectedMarker}>
       {showInfo && <InfoPopUpAmbassadors dispatch={() => setShowInfo(false)} />}
       {showProblemModal && (
-        <ProblemReportModal dispatch={() => setShowProblemModal(false)} />
+        <ProblemReportModal
+          marker={selectedMarker}
+          dispatch={() => setShowProblemModal(false)}
+        />
       )}
       <Container>
         <ProblemButton
@@ -67,6 +70,10 @@ const ProblemButton = styled.button`
     visibility: hidden;
   }
 
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+
   transition: all 0.2s ease;
 `;
 
@@ -95,6 +102,11 @@ const RouteButton = styled.button`
   }
 
   transition: all 0.2s ease;
+
+  @media screen and (min-width: 900px) {
+    bottom: 2rem;
+    z-index: 20;
+  }
 `;
 
 const Container = styled.div`

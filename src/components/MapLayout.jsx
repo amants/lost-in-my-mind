@@ -170,6 +170,19 @@ const Container = styled.div`
   left: 0;
   bottom: 0;
   z-index: 0;
+
+  @media screen and (min-width: 1100px) {
+    position: static;
+    height: 50rem;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+  }
 `;
 
 const Menu = styled.a`
@@ -183,7 +196,8 @@ const Menu = styled.a`
   padding: 8px 15px 10px;
   border-radius: 4px;
   font-size: 1.475rem;
-  z-index: 9;
+  cursor: pointer;
+  z-index: 2;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 
@@ -195,7 +209,7 @@ const Menu = styled.a`
 const Logo = styled.img`
   position: absolute;
   left: 1.5rem;
-  z-index: 9;
+  z-index: 7;
   top: 1rem;
   width: 6rem;
 

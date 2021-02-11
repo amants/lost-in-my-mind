@@ -1,11 +1,35 @@
 import styled from "styled-components";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import CircleSpinner from "./CircleSpinner";
 
-const PopUpComponent = ({ dispatch }) => {
+const PopUpComponent = ({ dispatch, marker }) => {
   const [currentProblem, setCurrentProblem] = useState();
+  const [message, setMessage] = useState();
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const popUpRef = useRef();
   const containerRef = useRef();
+
+  const sendReport = async () => {
+    setLoading(true);
+    const markerString = `${marker.id}: lat: ${marker.lat} long: ${marker.long}`;
+    await fetch("https://amantnv.be/api-bap/index.php?do=bug-report", {
+      method: "POST",
+      body: JSON.stringify({
+        error_type: {
+          notPresent: "Er is geen affiche hier",
+          technical: "Technisch probleem",
+          other: "Andere",
+        }[currentProblem],
+        message: message || undefined,
+        marker_string: markerString,
+      }),
+    });
+    setLoading(false);
+    closePopUp();
+  };
+
   const closePopUp = (e) => {
     if (e) e.preventDefault();
 
@@ -17,11 +41,23 @@ const PopUpComponent = ({ dispatch }) => {
     }, 200);
   };
 
+  useEffect(() => {
+    setErrors(() => {
+      const errors = {};
+      if (currentProblem && currentProblem !== "notPresent" && !message) {
+        errors.message = "Er moet een beschrijving ingevuld worden";
+      }
+      return errors;
+    });
+  }, [message, currentProblem]);
+
+  console.log(errors);
+
   return (
     <Background ref={popUpRef} onClick={closePopUp}>
       <Container ref={containerRef} onClick={(e) => e.stopPropagation()}>
         <Title>Wat is het probleem?</Title>
-        <ProblemContainer>
+        <ProblemContainer error={errors.error_type}>
           <ProblemItem
             selected={currentProblem === "notPresent"}
             onClick={() => setCurrentProblem("notPresent")}
@@ -41,6 +77,7 @@ const PopUpComponent = ({ dispatch }) => {
             Andere
           </ProblemItem>
         </ProblemContainer>
+        <Error>{errors?.error_type}</Error>
         {
           {
             technical: (
@@ -50,10 +87,25 @@ const PopUpComponent = ({ dispatch }) => {
           }[currentProblem]
         }
         {currentProblem && currentProblem !== "notPresent" && (
-          <TextArea placeholder="Wat is het probleem precies?"></TextArea>
+          <>
+            <TextArea
+              placeholder="Wat is het probleem precies?"
+              value={message}
+              error={errors.message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <Error>{errors?.message}</Error>
+          </>
         )}
         <ButtonContainer>
-          <Button onClick={closePopUp}>Verstuur</Button>
+          <Button
+            onClick={sendReport}
+            disabled={
+              loading || Object.values(errors).length > 0 || !currentProblem
+            }
+          >
+            Verstuur {loading && <CircleSpinner size={15} />}
+          </Button>
           <Button onClick={closePopUp} secondary>
             Sluiten
           </Button>
@@ -62,6 +114,10 @@ const PopUpComponent = ({ dispatch }) => {
     </Background>
   );
 };
+
+const Error = styled.p`
+  color: red;
+`;
 
 const TextArea = styled.textarea`
   border: 2px solid #342a63;
@@ -89,6 +145,7 @@ const ProblemItem = styled.button`
   padding: 0.5rem;
   border: 2px solid #342a63 !important;
   outline: none;
+  cursor: pointer;
   color: ${({ selected }) => (selected ? "white" : "#342A63")};
   background: ${({ selected }) => (selected ? "#342A63" : "none")};
   border-radius: 5px;
@@ -140,9 +197,10 @@ const Title = styled.h2`
   font-family: gt-pressura, sans-serif;
 `;
 
-const Button = styled.a`
+const Button = styled.button`
   text-decoration: none;
   width: 80%;
+  position: relative;
   margin: auto;
   margin-bottom: 1rem;
   height: 3rem;
@@ -150,9 +208,11 @@ const Button = styled.a`
   font-size: 14px;
   line-height: 20px;
   text-align: center;
+  cursor: pointer;
   text-transform: uppercase;
   display: flex;
   align-items: center;
+  padding: 0.5rem;
   justify-content: center;
   background: ${({ secondary }) => (secondary ? "none" : "#f2a655")};
   color: ${({ secondary }) => (secondary ? "#f2a655" : "white")};
@@ -162,6 +222,11 @@ const Button = styled.a`
     transform: scale(0.95);
   }
   transition: all 0.2s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export default PopUpComponent;

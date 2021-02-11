@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useEffect, useRef } from "react";
 
 import iconTickets from "../assets/images/icon-tickets.svg";
-
+import logo from "../assets/images/logo.svg";
 const PopUpComponent = ({ dispatch }) => {
   const menuRef = useRef();
 
@@ -20,6 +20,7 @@ const PopUpComponent = ({ dispatch }) => {
 
   return (
     <Container ref={menuRef}>
+      <Logo src={logo} alt="Memento logo"></Logo>
       <Menu onClick={() => closePopUp(false)}>Menu</Menu>
       <LinkItems>
         <LinkItem>Programma</LinkItem>
@@ -74,9 +75,17 @@ const TicketItem = styled.div`
   }
 `;
 
+const Logo = styled.img`
+  position: absolute;
+  left: 1.5rem;
+  z-index: 2;
+  top: 1rem;
+  width: 6rem;
+`;
+
 const Menu = styled.a`
   position: fixed;
-  right: 1.5rem;
+  right: 2rem;
   top: 3rem;
   background-color: #2e2457;
   font-weight: 700;
@@ -84,7 +93,7 @@ const Menu = styled.a`
   color: #fff2ea;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.125rem;
+  font-size: 1.475rem;
   z-index: 2;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
