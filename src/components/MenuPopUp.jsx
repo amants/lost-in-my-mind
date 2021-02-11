@@ -5,7 +5,7 @@ import { func } from "prop-types";
 import iconTickets from "../assets/images/icon-tickets.svg";
 import logo from "../assets/images/logo.svg";
 import logoKortrijk from "../assets/images/logo-kortrijk.svg";
-const PopUpComponent = ({ dispatch }) => {
+const MenuPopUp = ({ dispatch }) => {
   const menuRef = useRef();
 
   const closePopUp = (e) => {
@@ -42,8 +42,8 @@ const PopUpComponent = ({ dispatch }) => {
           </TicketItem>
         </LinkItem>
       </LinkItems>
-      <LinkItem href="https://mementowoordfestival.be/tickets/">
-        <KortrijkButton href="https://kortrijk.be/">
+      <LinkItem href="https://kortrijk.be/">
+        <KortrijkButton>
           <img src={logoKortrijk} alt="logo Kortrijk" />
         </KortrijkButton>
       </LinkItem>
@@ -51,7 +51,7 @@ const PopUpComponent = ({ dispatch }) => {
   );
 };
 
-const KortrijkButton = styled.a`
+const KortrijkButton = styled.div`
   & > img {
     width: 30px;
     margin-right: 1rem;
@@ -137,8 +137,8 @@ const Container = styled.div`
   transition: all 0.2s ease;
 `;
 
-PopUpComponent.propTypes = {
+MenuPopUp.propTypes = {
   dispatch: func.isRequired,
 };
 
-export default PopUpComponent;
+export default MenuPopUp;
