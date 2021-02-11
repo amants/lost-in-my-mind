@@ -17,14 +17,12 @@ const Ambassadors = () => {
         <ProblemReportModal dispatch={() => setShowProblemModal(false)} />
       )}
       <Container>
-        {selectedMarker && (
-          <ProblemButton
-            disabled={!selectedMarker}
-            onClick={() => setShowProblemModal(true)}
-          >
-            Probleem melden
-          </ProblemButton>
-        )}
+        <ProblemButton
+          disabled={!selectedMarker}
+          onClick={() => setShowProblemModal(true)}
+        >
+          Probleem melden
+        </ProblemButton>
         <RouteButton
           disabled={!selectedMarker}
           href={`http://maps.google.com/maps?q=${selectedMarker?.lat},${selectedMarker?.long}&navigate=yes`}
@@ -42,9 +40,9 @@ const Ambassadors = () => {
   );
 };
 
-const ProblemButton = styled.a`
+const ProblemButton = styled.button`
   position: fixed;
-  left: 2rem;
+  right: 2rem;
   text-decoration: none;
   bottom: 8rem;
   z-index: 2;
@@ -52,28 +50,29 @@ const ProblemButton = styled.a`
   font-weight: 700;
   text-transform: uppercase;
   background: rgba(249, 247, 245, 0.5);
-  /* Web/Rood */
-
   border: 2px solid #f2a655;
   color: #f2a655;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.475rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
   cursor: pointer;
   font-family: gt-pressura, sans-serif;
 
-  &::disabled {
-    opacity: 0.5;
+  &:disabled {
+    opacity: 0;
     cursor: not-allowed;
+    visibility: hidden;
   }
+
+  transition: all 0.2s ease;
 `;
 
-const RouteButton = styled.a`
+const RouteButton = styled.button`
   position: fixed;
-  right: 2rem;
+  left: 2rem;
   text-decoration: none;
   bottom: 8rem;
   z-index: 2;
@@ -84,15 +83,18 @@ const RouteButton = styled.a`
   color: white;
   padding: 8px 15px 10px;
   border-radius: 4px;
-  font-size: 1.475rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
+  border: 2px solid #f2a655;
   cursor: pointer;
   font-family: gt-pressura, sans-serif;
 
-  &::disabled {
+  &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  transition: all 0.2s ease;
 `;
 
 const Container = styled.div`
