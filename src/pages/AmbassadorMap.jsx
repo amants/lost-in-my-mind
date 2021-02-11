@@ -28,6 +28,8 @@ const Ambassadors = () => {
         </ProblemButton>
         <RouteButton
           disabled={!selectedMarker}
+          className={!selectedMarker && 'disabled'}
+          target="_blank"
           href={`http://maps.google.com/maps?q=${selectedMarker?.lat},${selectedMarker?.long}&navigate=yes`}
         >
           Bereken route
@@ -77,7 +79,7 @@ const ProblemButton = styled.button`
   transition: all 0.2s ease;
 `;
 
-const RouteButton = styled.button`
+const RouteButton = styled.a`
   position: fixed;
   left: 2rem;
   text-decoration: none;
@@ -96,8 +98,9 @@ const RouteButton = styled.button`
   cursor: pointer;
   font-family: gt-pressura, sans-serif;
 
-  &:disabled {
+  &.disabled {
     opacity: 0.5;
+    pointer-events: none;
     cursor: not-allowed;
   }
 
