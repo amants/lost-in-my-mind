@@ -35,7 +35,7 @@ const ARCamera = () => {
               <a-entity
                 id={data[key]?.markerData?.dataId}
                 gltf-model={data[key]?.markerData?.model}
-                scale="0.01 0.01 0.01"
+                scale="0.025 0.025 0.025"
                 look-at="[camera]"
                 data-ambassador={data[key]?.markerData?.name}
                 position="-100 -100 -100"
