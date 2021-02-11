@@ -39,7 +39,7 @@ const ARCamera = () => {
                 look-at="[camera]"
                 data-ambassador={data[key]?.markerData?.name}
                 position="-100 -100 -100"
-                rotation="-90 0 0"
+                rotation="0 0 0"
                 class="clickable"
                 treeman
               ></a-entity>
