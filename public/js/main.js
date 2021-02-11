@@ -4,7 +4,7 @@ const modelsShown = {};
 
 function markerFoundFunction(e, self, model) {
   self.markerFound = true;
-  model.setAttribute("position", { x: 1, y: 0, z: 0 });
+  model.setAttribute("position", { x: -3, y: -2, z: 2 });
   modelsShown[model.getAttribute("data-ambassador")] = true;
   const modelItem = model.getObject3D("mesh");
   const animation = modelItem.animations[0];
