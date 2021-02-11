@@ -1,4 +1,18 @@
 /* eslint-disable no-undef */
+navigator.xr.requestDevice =
+  navigator.xr.requestDevice ||
+  function () {
+    return new Promise((resolve, reject) => {
+      resolve({
+        supportsSession: new Promise((resolve, reject) => {
+          resolve({
+            immersive: true,
+            exclusive: true,
+          });
+        }),
+      });
+    });
+  };
 let mixers = [];
 var clock = new THREE.Clock();
 const modelsShown = {};
