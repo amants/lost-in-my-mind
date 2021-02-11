@@ -25,7 +25,21 @@ const PopUpComponent = ({ dispatch }) => {
           <ProblemItem
             selected={currentProblem === "notPresent"}
             onClick={() => setCurrentProblem("notPresent")}
-          ></ProblemItem>
+          >
+            Affiche niet aanwezig
+          </ProblemItem>
+          <ProblemItem
+            selected={currentProblem === "technical"}
+            onClick={() => setCurrentProblem("technical")}
+          >
+            Technisch probleem
+          </ProblemItem>
+          <ProblemItem
+            selected={currentProblem === "other"}
+            onClick={() => setCurrentProblem("other")}
+          >
+            Andere
+          </ProblemItem>
         </ProblemContainer>
         {
           {
