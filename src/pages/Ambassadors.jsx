@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { isMobile } from "mobile-device-detect";
 import styled from "styled-components";
+import iconThumb from "../assets/images/icon-thumb.svg";
+import litVlaanderen from "../assets/images/literatuur-vlaanderen.svg";
 import AmbassadorSwiper from "../components/AmbassadorSwiper";
 import Layout from "../components/Layout";
 import InfoPopUpAmbassadors from "../components/InfoPopUpAmbassadors";
@@ -21,72 +24,156 @@ const Ambassadors = () => {
       )}
       {showInfo && <InfoPopUpAmbassadors dispatch={() => setShowInfo(false)} />}
       <Heading>
-        <DesktopHeading>
-          <LeftSideHeading />
-          <RightSideHeading>
-            <h2>Verdwaal in mijn Gedachten</h2>
-            <p>
-              Leer <span>onze 5 ambassadeurs</span> op een unieke manier kennen.
-              Neem een kijkje in hun gedachten en ga op zoek naar wie de auteur
-              is en hoe hij of zij denkt.
-            </p>
-            <p>
-              In Kortrijk zijn 5 interactieve affiches te vinden gekoppeld aan
-              een ambassadeur. Door de QR-code te scannen krijg je toegang tot
-              hun interactieve AR-wereld.
-            </p>
-          </RightSideHeading>
-        </DesktopHeading>
-        <MobileHeading>
-          <Title>De 5 ambassadeurs</Title>
-          <Information onClick={() => setShowInfo(true)}>i</Information>
-        </MobileHeading>
+        {isMobile ? (
+          <MobileHeading>
+            <Title>De 5 ambassadeurs</Title>
+            <Information onClick={() => setShowInfo(true)}>i</Information>
+          </MobileHeading>
+        ) : (
+          <DesktopHeading>
+            <LeftSideHeading />
+            <RightSideHeading>
+              <h2>Verdwaal in mijn Gedachten</h2>
+              <p>
+                Leer <span>onze 5 ambassadeurs</span> op een unieke manier
+                kennen. Neem een kijkje in hun gedachten en ga op zoek naar wie
+                de auteur is en hoe hij of zij denkt.
+              </p>
+              <p>
+                In Kortrijk zijn 5 interactieve affiches te vinden gekoppeld aan
+                een ambassadeur. Door de QR-code te scannen krijg je toegang tot
+                hun interactieve AR-wereld.
+              </p>
+            </RightSideHeading>
+          </DesktopHeading>
+        )}
       </Heading>
       <AmbassadorSwiper setAmbassadorPopup={setAmbassadorPopup} />
-      <DesktopMap>
-        <LeftSideMap>
-          <h2>Verdwaal in de Binnenstad</h2>
-          <p>
-            De affiches van de ambassadeurs zijn te vinden op de langgerekte
-            interactieve woordroute. Hiernaast zijn de exacte locaties
-            weergegeven.
-          </p>
-          <p>
-            Problemen met het vinden van de affiche? Open deze pagina tijdens
-            jouw zoektocht met een mobiel apparaat en laat je helpen door de
-            routebeschrijving.
-          </p>
-        </LeftSideMap>
-        <RightSideMap>
-          <MapProvider>
-            <AmbassadorMap selectedMarkerState={[undefined, () => {}]} />
-          </MapProvider>
-        </RightSideMap>
-      </DesktopMap>
-      <AppNav activePage="ambassadors" />
+      {!isMobile ? (
+        <>
+          <DesktopMap>
+            <LeftSideMap>
+              <h2>Verdwaal in de Binnenstad</h2>
+              <p>
+                De affiches van de ambassadeurs zijn te vinden op de langgerekte
+                interactieve woordroute. Hiernaast zijn de exacte locaties
+                weergegeven.
+              </p>
+              <p>
+                Problemen met het vinden van de affiche? Open deze pagina
+                tijdens jouw zoektocht met een mobiel apparaat en laat je helpen
+                door de routebeschrijving.
+              </p>
+            </LeftSideMap>
+            <RightSideMap>
+              <MapProvider>
+                <AmbassadorMap selectedMarkerState={[undefined, () => {}]} />
+              </MapProvider>
+            </RightSideMap>
+          </DesktopMap>
+          <Footer>
+            <LitVlaanderenSectie>
+              Met de steun van{" "}
+              <img src={litVlaanderen} alt="Literatuur vlaanderen" />
+            </LitVlaanderenSectie>
+            <FacebookSectie>
+              <img src={iconThumb} alt="Literatuur vlaanderen" />
+              Memento op facebook
+            </FacebookSectie>
+            <OtherInformation>
+              Stad Kortrijk - Grote Markt 54 - 8500 Kortrijk -{" "}
+              <a href="mailto:1777@kortrijk.be">1777@kortrijk.be</a> - tel.{" "}
+              <a href="tel:1777">1777</a> (gratis)
+              <br />
+              Alle rechten voorbehouden -{" "}
+              <a href="https://www.kortrijk.be/gebruiksvoorwaarden">
+                Gebruiksvoorwaarden
+              </a>{" "}
+              -{" "}
+              <a href="https://www.kortrijk.be/privacyverklaring">
+                Privacyverklaring
+              </a>
+            </OtherInformation>
+          </Footer>
+        </>
+      ) : (
+        <AppNav activePage="ambassadors" />
+      )}
     </Layout>
   );
 };
 
+const OtherInformation = styled.div`
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ddd5c9;
+  margin-top: 3rem;
+
+  & a {
+    color: inherit;
+    transition: color 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: #342a63;
+    }
+  }
+`;
+
+const Footer = styled.footer`
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  & > a {
+    text-decoration: none;
+  }
+`;
+
+const LitVlaanderenSectie = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  & > img {
+    margin-left: 1rem;
+    width: 100px;
+  }
+`;
+
+const FacebookSectie = styled.a`
+  font-size: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #3b5998;
+  color: white;
+  font-family: gt-pressura, sans-serif;
+  text-transform: uppercase;
+  & > img {
+    margin-right: 1rem;
+  }
+`;
+
 const DesktopMap = styled.div`
-  display: none;
+  display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: 1fr;
   color: white;
   border-radius: 12px;
   font-size: 1.5rem;
   line-height: 1.4;
+  margin: 0 2rem;
   overflow: hidden;
   margin-bottom: 4rem;
 
   @media screen and (min-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    display: grid;
-  }
-
-  @media screen and (min-width: 900px) {
-    display: grid;
   }
 `;
 
@@ -95,13 +182,10 @@ const MobileHeading = styled.header`
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
 `;
 
 const DesktopHeading = styled.header`
-  display: none;
+  display: grid;
   color: white;
   border-radius: 12px;
   font-size: 1.5rem;
@@ -114,10 +198,6 @@ const DesktopHeading = styled.header`
   @media screen and (min-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    display: grid;
-  }
-
-  @media screen and (min-width: 900px) {
     display: grid;
   }
 `;

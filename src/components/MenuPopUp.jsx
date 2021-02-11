@@ -1,9 +1,10 @@
-import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import styled from "styled-components";
+import { func } from "prop-types";
 
 import iconTickets from "../assets/images/icon-tickets.svg";
 import logo from "../assets/images/logo.svg";
-import { func } from "prop-types";
+import logoKortrijk from "../assets/images/logo-kortrijk.svg";
 const PopUpComponent = ({ dispatch }) => {
   const menuRef = useRef();
 
@@ -24,22 +25,38 @@ const PopUpComponent = ({ dispatch }) => {
       <Logo src={logo} alt="Memento logo"></Logo>
       <Menu onClick={() => closePopUp(false)}>Menu</Menu>
       <LinkItems>
-        <LinkItem>Programma</LinkItem>
-        <LinkItem>Expo</LinkItem>
-        <LinkItem>Tijdschema</LinkItem>
-        <LinkItem>Praktische info</LinkItem>
-        <LinkItem>Partners</LinkItem>
-        <LinkItem>Ambassadeurs</LinkItem>
-        <LinkItem>
+        <LinkItem href="https://mementowoordfestival.be/programma/">
+          Programma
+        </LinkItem>
+        <LinkItem href="https://mementowoordfestival.be/woordroute/">
+          Woordroute
+        </LinkItem>
+        <LinkItem href="https://mementowoordfestival.be/partners/">
+          Partners
+        </LinkItem>
+        <LinkItem href="ambassadeurs">Ambassadeurs</LinkItem>
+        <LinkItem href="https://mementowoordfestival.be/tickets/">
           <TicketItem>
             <img src={iconTickets} alt="Icon tickets" />
             Tickets
           </TicketItem>
         </LinkItem>
       </LinkItems>
+      <LinkItem href="https://mementowoordfestival.be/tickets/">
+        <KortrijkButton href="https://kortrijk.be/">
+          <img src={logoKortrijk} alt="logo Kortrijk" />
+        </KortrijkButton>
+      </LinkItem>
     </Container>
   );
 };
+
+const KortrijkButton = styled.a`
+  & > img {
+    width: 30px;
+    margin-right: 1rem;
+  }
+`;
 
 const LinkItems = styled.div`
   display: flex;
@@ -55,6 +72,7 @@ const LinkItem = styled.a`
   padding: 1rem;
   font-size: 2.5rem;
   text-transform: uppercase;
+  text-decoration: none;
 
   &:hover {
     color: #fc7352;
@@ -67,6 +85,8 @@ const TicketItem = styled.div`
   align-items: cemter;
   justify-content: center;
   padding: 1rem;
+  color: white;
+  text-decoration: none;
   background: #f2a655;
   border-radius: 5px;
   font-size: 1.75rem;
@@ -111,6 +131,7 @@ const Container = styled.div`
   right: 0;
   z-index: 11;
   bottom: 0;
+  justify-content: space-between;
   flex-direction: column;
   background-color: #2e2457;
   transition: all 0.2s ease;

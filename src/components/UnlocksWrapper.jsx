@@ -63,10 +63,6 @@ const Container = styled.div`
   opacity: ${({ active }) => (active ? 1 : 0)};
   max-height: ${({ active }) => (active ? "50rem" : 0)};
   transition: all 0.2s ease;
-
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
 `;
 
 UnlocksWrapper.propTypes = {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { isMobile } from "mobile-device-detect";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow, Navigation } from "swiper";
@@ -89,30 +90,20 @@ const AmbassadorSwiper = ({ setAmbassadorPopup }) => {
                 {ambassador.fullName}
               </AmbassadorName>
             </div>
-            <UnlocksWrapper
-              setAmbassadorPopup={setAmbassadorPopup}
-              unlockedData={unlockedData}
-              active={activeIndex === i}
-              ambassador={ambassador}
-            />
+            {isMobile && (
+              <UnlocksWrapper
+                setAmbassadorPopup={setAmbassadorPopup}
+                unlockedData={unlockedData}
+                active={activeIndex === i}
+                ambassador={ambassador}
+              />
+            )}
           </Slide>
         </SwiperSlide>
       ))}
     </Swiper>
   );
 };
-
-// const ShowUnlocksButton = styled.a`
-//   display: inline-flex;
-//   color: #2e2457;
-//   border: 2px solid #2e2457;
-//   height: 3rem;
-//   width: 50%;
-//   max-width: 40rem;
-//   justify-content: center;
-//   align-items: center;
-//   margin-top: 2rem;
-// `;
 
 const AmbassadorName = styled.p`
   display: none;

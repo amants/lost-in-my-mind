@@ -38,10 +38,6 @@ const Container = styled.div`
   font-family: gt-pressura;
   background-color: #f9f7f5;
   border-top: 2px solid #f2a655;
-
-  @media screen and (min-width: 900px) {
-    display: none;
-  }
 `;
 
 const IconButton = styled.a`

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { isMobile } from "mobile-device-detect";
 import styled from "styled-components";
 import Layout from "../components/MapLayout";
 import ProblemReportModal from "../components/ProblemReportModal";
@@ -37,7 +38,7 @@ const Ambassadors = () => {
           />
         </MapProvider>
       </Container>
-      <AppNav activePage="map" />
+      {isMobile && <AppNav activePage="map" />}
     </Layout>
   );
 };
