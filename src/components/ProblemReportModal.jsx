@@ -43,11 +43,15 @@ const PopUpComponent = ({ dispatch }) => {
         </ProblemContainer>
         {
           {
-            notPresent: <p>notPresent</p>,
-            technical: <p>technical</p>,
-            other: <p>other</p>,
+            technical: (
+              <ProblemLabel>Er is een technisch probleem</ProblemLabel>
+            ),
+            other: <ProblemLabel>Andere</ProblemLabel>,
           }[currentProblem]
         }
+        {currentProblem && currentProblem !== "notPresent" && (
+          <TextArea placeholder="Wat is het probleem precies?"></TextArea>
+        )}
         <ButtonContainer>
           <Button onClick={closePopUp}>Verstuur</Button>
           <Button onClick={closePopUp} secondary>
@@ -59,8 +63,37 @@ const PopUpComponent = ({ dispatch }) => {
   );
 };
 
-const ProblemContainer = styled.div``;
-const ProblemItem = styled.button``;
+const TextArea = styled.textarea`
+  border: 2px solid #342a63;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: arial, helvetica, sans-serif;
+  padding: 0.5rem;
+  min-height: 8rem;
+`;
+
+const ProblemLabel = styled.h3`
+  color: #342a63;
+  font-family: gt-pressura, sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+`;
+
+const ProblemContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+`;
+const ProblemItem = styled.button`
+  padding: 0.5rem;
+  border: 2px solid #342a63 !important;
+  outline: none;
+  color: ${({ selected }) => (selected ? "white" : "#342A63")};
+  background: ${({ selected }) => (selected ? "#342A63" : "none")};
+  border-radius: 5px;
+  transition: all 0.2s ease;
+`;
 
 const ButtonContainer = styled.div`
   margin-top: 2rem;
@@ -92,7 +125,7 @@ const Container = styled.div`
   background: #f6d6c1;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-
+  width: 90%;
   animation-name: scale-in;
   animation-duration: 0.2s;
   animation-iteration-count: once;
@@ -104,6 +137,7 @@ const Title = styled.h2`
   font-size: 20px;
   line-height: 140%;
   color: #2e2457;
+  font-family: gt-pressura, sans-serif;
 `;
 
 const Button = styled.a`

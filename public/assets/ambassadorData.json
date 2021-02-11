@@ -113,7 +113,7 @@
         "image": "lize-woestijn.png"
       },
       "puzzelstukjes": {
-        "title": "Puzzelstukjes",
+        "title": "Puzzel stukjes",
         "content": "Schrijven is een verhaal vertellen door voor de lezer nauwkeurig de juiste puzzelstukjes één voor één in elkaar te klikken",
         "modelClickNames": ["puzzel_outline", "Cube14"],
         "image": "lize-puzzel.png"
@@ -154,7 +154,7 @@
     ],
     "clickableModels": {
       "muziekinstallatie": {
-        "title": "Muziekinstallatie",
+        "title": "Muziek installatie",
         "content": "Een goede muziekinstallatie, omdat ik niet zonder muziek kan leven.",
         "modelClickNames": [
           "muziekinstallatie",

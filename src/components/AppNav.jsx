@@ -32,6 +32,7 @@ const Container = styled.div`
   height: 6rem;
   padding: 0.5rem;
   grid-template-columns: 2fr 2fr 2fr;
+  padding: 0.5rem 1.5rem;
   grid-gap: 2rem;
   font-family: gt-pressura;
   background-color: #f9f7f5;

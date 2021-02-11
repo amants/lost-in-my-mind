@@ -107,7 +107,7 @@ const Menu = styled.a`
   padding: 8px 15px 10px;
   border-radius: 4px;
   font-size: 1.475rem;
-  z-index: 2;
+  z-index: 9;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 `;
@@ -115,7 +115,7 @@ const Menu = styled.a`
 const Logo = styled.img`
   position: fixed;
   left: 2rem;
-  z-index: 7;
+  z-index: 9;
   top: 1rem;
   width: 6rem;
 `;
@@ -123,7 +123,7 @@ const Logo = styled.img`
 const Info = styled.a`
   position: fixed;
   left: 2rem;
-  bottom: 11rem;
+  bottom: 8rem;
   z-index: 2;
   position: absolute;
   background-color: #f2a655;

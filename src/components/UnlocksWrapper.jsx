@@ -62,7 +62,7 @@ const NoItemsUnlocked = styled.div`
 const Container = styled.div`
   display: grid;
   margin-top: 2rem;
-  grid-gap: 2rem;
+  grid-gap: 0.5rem;
   grid-template-columns: repeat(3, 1fr);
   opacity: ${({ active }) => (active ? 1 : 0)};
   max-height: ${({ active }) => (active ? "50rem" : 0)};

@@ -183,7 +183,7 @@ const Menu = styled.a`
   padding: 8px 15px 10px;
   border-radius: 4px;
   font-size: 1.475rem;
-  z-index: 2;
+  z-index: 9;
   letter-spacing: 0.5px;
   font-family: gt-pressura, sans-serif;
 
@@ -195,7 +195,7 @@ const Menu = styled.a`
 const Logo = styled.img`
   position: absolute;
   left: 1.5rem;
-  z-index: 11;
+  z-index: 9;
   top: 1rem;
   width: 6rem;
 
