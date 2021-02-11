@@ -2,7 +2,7 @@
 
 ![Screenshot](https://amant.dev/bap/header_ambassadors.png)
 
-A webapp developed for Memento for our bachelor's assignment. Student work by [Sam Amant](https://www.linkedin.com/in/sam-amant/), [Jorne Neirynck](https://www.linkedin.com/in/jorne-neirynck-a1572a194/) and [Eloy Vantieghem](https://github.com/ELOYVANTIEGHEM).
+A webapp developed for Memento for our bachelor's assignment. Student work by [Sam Amant](https://www.linkedin.com/in/sam-amant/), [Jorne Neirynck](https://www.linkedin.com/in/jorne-neirynck-a1572a194/) and [Eloy Vantieghem](https://www.linkedin.com/in/eloy-vantieghem-1349b0206/).
 
 ## Brief
 
