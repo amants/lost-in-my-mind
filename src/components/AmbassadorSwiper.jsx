@@ -192,7 +192,7 @@ const Slide = styled.div`
     border: none;
     opacity: ${({ active }) => (active ? 1 : 0)};
     visibility: ${({ active }) => (active ? "visible" : "hidden")};
-    ${({ active }) => active && "pointer-events: none;"};
+    ${({ active }) => !active && "pointer-events: none;"};
     transition: opacity 0.2s ease;
     content: "";
     position: absolute;
