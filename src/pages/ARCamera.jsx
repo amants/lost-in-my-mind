@@ -46,7 +46,13 @@ const ARCamera = () => {
             </a-marker>
           );
         })}
-        <a-light type="point" color="white" position="0 5 0"></a-light>
+        <a-light
+          type="point"
+          color="#fff"
+          intensity="1"
+          decay="2"
+          look-at="[treeman]"
+        ></a-light>
         <a-entity camera id="arjscamera"></a-entity>
       </a-scene>
     </ARCameraLayout>

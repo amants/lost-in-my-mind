@@ -1,4 +1,4 @@
-import { bool, func, number, shape } from "prop-types";
+import { bool, func, string, shape } from "prop-types";
 import styled from "styled-components";
 
 const UnlocksItem = ({ data, colors, unlocked, showElementPopUp, itemKey }) => {
@@ -57,7 +57,7 @@ UnlocksItem.propTypes = {
   colors: shape(),
   unlocked: bool,
   showElementPopUp: func.isRequired,
-  itemKey: number.isRequired,
+  itemKey: string.isRequired,
 };
 
 export default UnlocksItem;
