@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Become lost in my mind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot](https://amant.dev/bap/header_ambassadors.png)
+
+A webapp developed for Memento for our bachelor's assignment. Student work by [Sam Amant](https://www.linkedin.com/in/sam-amant/), [Jorne Neirynck](https://www.linkedin.com/in/jorne-neirynck-a1572a194/) and [Eloy Vantieghem](https://github.com/ELOYVANTIEGHEM).
+
+## Brief
+
+> Research, design and develop a digital experience for the Memento word festival in Kortrijk.
+
+## Concept & Technologies
+
+Become lost in my mind is a webapp that starts your journey through Kortrijk. Find the posters of the ambassadors to have a peak into their minds. Scan their poster to start an augmented reality experience to get to know the ambassadors.
 
 ## Available Scripts
 
@@ -24,47 +34,16 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- A mobile phone that supports WebAR
+- A full battery
 
-### `yarn eject`
+## Built Using
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://github.com/facebook/react/) - JavaScript library for building user interfaces
+- [create-react-app](https://github.com/facebook/create-react-app) - Create React apps with no build configuration.
+- [ARjs](https://github.com/AR-js-org/AR.js/) - AR.js is a lightweight library for Augmented Reality on the Web, coming with features like Image Tracking, Location-based AR and Marker tracking.
+- [AFrame](https://github.com/aframevr/aframe) - A web framework for building virtual reality experiences.
+- [react-map-gl](https://visgl.github.io/react-map-gl/) - react-map-gl makes using Mapbox GL JS in React applications easy.
+- [mapbox-gl](https://github.com/mapbox/mapbox-gl-js) - Mapbox GL JS is a JavaScript library for interactive, customizable vector maps on the web.

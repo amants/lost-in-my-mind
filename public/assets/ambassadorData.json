@@ -13,7 +13,7 @@
     },
     "markerData": {
       "dataId": "markerJoost",
-      "model": "./models/wereld_joost_aanpassing.gltf",
+      "model": "./assets/models/wereld_joost_aanpassing.gltf",
       "name": "Joost",
       "position": "0 0 0",
       "marker": "1"
@@ -58,7 +58,7 @@
     "fullName": "Lize Spit",
     "markerData": {
       "dataId": "markerLize",
-      "model": "./models/Lize.gltf",
+      "model": "./assets/models/Lize.gltf",
       "name": "Lize",
       "position": "0 -3 2",
       "marker": "2"
@@ -132,7 +132,7 @@
     "markerData": {
       "dataId": "markerStefan",
       "name": "Stefan",
-      "model": "./models/Stefan.gltf",
+      "model": "./assets/models/Stefan.gltf",
       "position": "0 0 0",
       "marker": "3",
       "markerName": "marker-stefan"
@@ -226,7 +226,7 @@
     },
     "markerData": {
       "dataId": "markerDalilla",
-      "model": "./models/Dalilla.gltf",
+      "model": "./assets/models/Dalilla.gltf",
       "name": "Dalilla",
       "position": "0 -3 2",
       "marker": "4"
@@ -284,7 +284,7 @@
     },
     "markerData": {
       "dataId": "markerAnneleen",
-      "model": "./models/Anneleen.gltf",
+      "model": "./assets/models/Anneleen.gltf",
       "name": "Anneleen",
       "position": "0 -3 2",
       "marker": "5"
