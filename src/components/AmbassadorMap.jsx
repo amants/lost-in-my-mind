@@ -5,6 +5,10 @@ import { Markers } from './Markers';
 import { useDispatchMap } from '../hooks/useMapHook';
 import { useAmbassadorData } from '../hooks/useAmbassadorData';
 import { array } from 'prop-types';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const AmbassadorMap = ({ selectedMarkerState }) => {
   const { status, data } = useAmbassadorData();
