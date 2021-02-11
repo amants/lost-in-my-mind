@@ -8,6 +8,7 @@ const PopUpComponent = ({ dispatch, marker }) => {
   const [currentProblem, setCurrentProblem] = useState();
   const [message, setMessage] = useState();
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const popUpRef = useRef();
   const containerRef = useRef();
@@ -28,7 +29,7 @@ const PopUpComponent = ({ dispatch, marker }) => {
       }),
     });
     setLoading(false);
-    closePopUp();
+    setSuccess(true);
   };
 
   const closePopUp = (e) => {
@@ -55,64 +56,86 @@ const PopUpComponent = ({ dispatch, marker }) => {
   return (
     <Background ref={popUpRef} onClick={closePopUp}>
       <Container ref={containerRef} onClick={(e) => e.stopPropagation()}>
-        <Title>Wat is het probleem?</Title>
-        <ProblemContainer error={errors.error_type}>
-          <ProblemItem
-            selected={currentProblem === "notPresent"}
-            onClick={() => setCurrentProblem("notPresent")}
-          >
-            Affiche niet aanwezig
-          </ProblemItem>
-          <ProblemItem
-            selected={currentProblem === "technical"}
-            onClick={() => setCurrentProblem("technical")}
-          >
-            Technisch probleem
-          </ProblemItem>
-          <ProblemItem
-            selected={currentProblem === "other"}
-            onClick={() => setCurrentProblem("other")}
-          >
-            Andere
-          </ProblemItem>
-        </ProblemContainer>
-        <Error>{errors?.error_type}</Error>
-        {
-          {
-            technical: (
-              <ProblemLabel>Er is een technisch probleem</ProblemLabel>
-            ),
-            other: <ProblemLabel>Andere</ProblemLabel>,
-          }[currentProblem]
-        }
-        {currentProblem && currentProblem !== "notPresent" && (
+        {success ? (
           <>
-            <TextArea
-              placeholder="Wat is het probleem precies?"
-              value={message}
-              error={errors.message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <Error>{errors?.message}</Error>
+            <ThankyouTitle>Bedankt!</ThankyouTitle>
+            <ThankyouText>
+              We hebbben jouw melding succesvol ontvangen. We lossen het
+              probleem zo snel mogelijk op.
+            </ThankyouText>
+            <ButtonContainer>
+              <Button onClick={closePopUp}>Sluiten</Button>
+            </ButtonContainer>
+          </>
+        ) : (
+          <>
+            <Title>Wat is het probleem?</Title>
+            <ProblemContainer error={errors.error_type}>
+              <ProblemItem
+                selected={currentProblem === "notPresent"}
+                onClick={() => setCurrentProblem("notPresent")}
+              >
+                Affiche niet aanwezig
+              </ProblemItem>
+              <ProblemItem
+                selected={currentProblem === "technical"}
+                onClick={() => setCurrentProblem("technical")}
+              >
+                Technisch probleem
+              </ProblemItem>
+              <ProblemItem
+                selected={currentProblem === "other"}
+                onClick={() => setCurrentProblem("other")}
+              >
+                Andere
+              </ProblemItem>
+            </ProblemContainer>
+            <Error>{errors?.error_type}</Error>
+            {
+              {
+                technical: (
+                  <ProblemLabel>Er is een technisch probleem</ProblemLabel>
+                ),
+                other: <ProblemLabel>Andere</ProblemLabel>,
+              }[currentProblem]
+            }
+            {currentProblem && currentProblem !== "notPresent" && (
+              <>
+                <TextArea
+                  placeholder="Wat is het probleem precies?"
+                  value={message}
+                  error={errors.message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+                <Error>{errors?.message}</Error>
+              </>
+            )}
+            <ButtonContainer>
+              <Button
+                onClick={sendReport}
+                disabled={
+                  loading || Object.values(errors).length > 0 || !currentProblem
+                }
+              >
+                Verstuur {loading && <CircleSpinner size={15} />}
+              </Button>
+              <Button onClick={closePopUp} secondary>
+                Sluiten
+              </Button>
+            </ButtonContainer>
           </>
         )}
-        <ButtonContainer>
-          <Button
-            onClick={sendReport}
-            disabled={
-              loading || Object.values(errors).length > 0 || !currentProblem
-            }
-          >
-            Verstuur {loading && <CircleSpinner size={15} />}
-          </Button>
-          <Button onClick={closePopUp} secondary>
-            Sluiten
-          </Button>
-        </ButtonContainer>
       </Container>
     </Background>
   );
 };
+
+const ThankyouText = styled.p`
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  padding: 0 1rem;
+`;
 
 const Error = styled.p`
   color: red;
@@ -191,6 +214,15 @@ const Container = styled.div`
 const Title = styled.h2`
   font-weight: 700;
   font-size: 20px;
+  line-height: 140%;
+  color: #2e2457;
+  font-family: gt-pressura, sans-serif;
+`;
+
+const ThankyouTitle = styled.h2`
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
   line-height: 140%;
   color: #2e2457;
   font-family: gt-pressura, sans-serif;
