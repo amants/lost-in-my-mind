@@ -45,16 +45,16 @@ const Ambassadors = () => {
       <AmbassadorSwiper setAmbassadorPopup={setAmbassadorPopup} />
       <DesktopMap>
         <LeftSideMap>
-          <h2>Verdwaal in mijn Gedachten</h2>
+          <h2>Verdwaal in de Binnenstad</h2>
           <p>
-            Leer <span>onze 5 ambassadeurs</span> op een unieke manier kennen.
-            Neem een kijkje in hun gedachten en ga op zoek naar wie de auteur is
-            en hoe hij of zij denkt.
+            De affiches van de ambassadeurs zijn te vinden op de langgerekte
+            interactieve woordroute. Hiernaast zijn de exacte locaties
+            weergegeven.
           </p>
           <p>
-            In Kortrijk zijn 5 interactieve affiches te vinden gekoppeld aan een
-            ambassadeur. Door de QR-code te scannen krijg je toegang tot hun
-            interactieve AR-wereld.
+            Problemen met het vinden van de affiche? Open deze pagina tijdens
+            jouw zoektocht met een mobiel apparaat en laat je helpen door de
+            routebeschrijving.
           </p>
         </LeftSideMap>
         <RightSideMap>
